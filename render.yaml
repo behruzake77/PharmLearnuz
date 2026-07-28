@@ -1,0 +1,39 @@
+# PharmLearn — Render Deployment Config
+# https://render.com/docs/blueprint-spec
+#
+# Deploy: 
+#   1. GitHub repo'ni Render'ga ulang
+#   2. Connect: behruzake77/PharmLearnuz
+#   3. Render avtomatik render.yaml ni o'qib oladi
+#   4. VITE_BLUESMINDS_API_KEY ni Environment Secrets ga qo'shing
+
+services:
+  - type: static_site
+    name: pharmlearn
+    repo: https://github.com/behruzake77/PharmLearnuz
+    branch: main
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    pullRequestPreviewsEnabled: true
+    healthCheckPath: /
+    domains:
+      - pharmlearn.onrender.com
+    
+    # Security headers
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+
+    # Environment variables (secretlarni Render dashboard dan qo'shing)
+    envVars:
+      - key: VITE_BLUESMINDS_API_KEY
+        sync: false
+      - key: VITE_PHARMLEARN_ADMIN_KEY
+        sync: false
