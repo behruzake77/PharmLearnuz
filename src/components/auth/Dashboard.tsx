@@ -111,7 +111,7 @@ export default function Dashboard({ onNavigate, onEditProfile }: DashboardProps)
       <ParticleField count={25} colors={['#6366f1', '#0d9488', '#14b8a6', '#8b5cf6', '#06b6d4']} />
 
       {/* ===== SIDEBAR ===== */}
-      <GlassCard className={`fixed inset-y-0 left-0 z-40 w-72 border-r border-white/5 transform transition-transform duration-300 lg:translate-x-0 lg:static lg:flex-shrink-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} !bg-[#0c0c1d]/90 !backdrop-blur-2xl !rounded-none !border-none`}>
+      <div className={`fixed inset-y-0 left-0 z-40 w-72 transform transition-transform duration-300 lg:translate-x-0 lg:!relative lg:flex-shrink-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} bg-[#0c0c1d]/95 backdrop-blur-2xl border-r border-white/5`}>
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-between h-16 px-6 border-b border-white/5">
             <button onClick={() => onNavigate('landing')} className="flex items-center gap-2.5 group">
@@ -151,7 +151,7 @@ export default function Dashboard({ onNavigate, onEditProfile }: DashboardProps)
             </button>
           </div>
         </div>
-      </GlassCard>
+      </div>
 
       {sidebarOpen && <div className="fixed inset-0 z-30 bg-black/60 backdrop-blur-sm lg:hidden" onClick={() => setSidebarOpen(false)} />}
 
