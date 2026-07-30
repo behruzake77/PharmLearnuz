@@ -199,11 +199,15 @@ export default function Hero({ onNavigate, onShowVideo }: HeroProps) {
                   </div>
                 </div>
 
-                {/* Image area with overlay content - Jitter style */}
-                <div className="relative aspect-[4/3] bg-dark-50 overflow-hidden">
+                {/* Image area with overlay content - Jitter style • REAL asset */}
+                <div className="relative aspect-[4/3] bg-dark-950 overflow-hidden">
                   <img
-                    src="https://images.pexels.com/photos/8667961/pexels-photo-8667961.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=800"
-                    alt="Pharmacy learning"
+                    src="/jitter-assets/hero-dashboard.webp"
+                    alt="PharmLearn Pharmacy Dashboard — real Jitter glass dashboard"
+                    width={1200}
+                    height={670}
+                    loading="eager"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-dark-900/70 via-dark-900/10 to-transparent" />

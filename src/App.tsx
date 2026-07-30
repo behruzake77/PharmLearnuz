@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import SocialProof from './components/SocialProof';
 import Features from './components/Features';
+import JitterShowcase from './components/JitterShowcase';
 import Courses from './components/Courses';
 import Benefits from './components/Benefits';
 import Testimonials from './components/Testimonials';
@@ -77,6 +78,7 @@ function AppContent() {
                 <NewsSection />
               </section>
               <Features />
+              <JitterShowcase />
               <Courses onNavigate={handleNavigate} onShowAll={() => setShowAllCourses(true)} />
               <Benefits onNavigate={handleNavigate} />
               <Testimonials />
