@@ -37,7 +37,7 @@ export default function CTA({ onNavigate }: CTAProps) {
               <div className="absolute inset-0 bg-grid-dark opacity-[0.3]" />
             </div>
 
-            {/* Floating cards - Jitter style */}
+            {/* Floating cards - Premium style */}
             <motion.div
               animate={{ y: [-6, 6, -6], rotate: [0, 1, 0] }}
               transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
@@ -54,7 +54,7 @@ export default function CTA({ onNavigate }: CTAProps) {
                 className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[11px] font-bold tracking-[0.12em] uppercase text-white/80 mb-6"
               >
                 <Sparkles className="w-3.5 h-3.5" />
-                Jitter premium • Bugunoq boshlang
+                Premium • Bugunoq boshlang
               </motion.div>
 
               <motion.h2
@@ -76,8 +76,8 @@ export default function CTA({ onNavigate }: CTAProps) {
                 transition={{ duration: 0.6, delay: 0.16 }}
                 className="mt-5 text-[15px] sm:text-[17px] leading-[1.6] tracking-[-0.01em] text-white/60 max-w-[560px] mx-auto"
               >
-                10,000+ farmasevtlarga qo‘shiling. Jitter.video dan ilhomlangan premium motion,
-                orbit cards, gradient loop — 7 kun bepul.
+                10,000+ farmasevtlarga qo‘shiling. Premium brend tajribasi, silliq motion,
+                orbit cards va gradient loop — 7 kun bepul.
               </motion.p>
 
               <motion.div
@@ -96,7 +96,7 @@ export default function CTA({ onNavigate }: CTAProps) {
                   </span>
                 </button>
                 <a href="#features" className="px-6 py-3 rounded-full bg-white/[0.06] border border-white/10 text-white/80 hover:text-white hover:bg-white/[0.10] text-[13px] font-medium tracking-tight transition-all">
-                  Batafsil — Jitter dizayn
+                  Batafsil — Premium dizayn
                 </a>
               </motion.div>
 
@@ -110,7 +110,7 @@ export default function CTA({ onNavigate }: CTAProps) {
                 <span className="w-px h-3 bg-white/15" />
                 <span>30 kun kafolat</span>
                 <span className="w-px h-3 bg-white/15" />
-                <span>Jitter silliq bekor qilish</span>
+                <span>Premium silliq bekor qilish</span>
               </motion.div>
             </div>
           </div>

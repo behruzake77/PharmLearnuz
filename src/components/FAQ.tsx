@@ -5,8 +5,8 @@ import { Plus, Minus, Sparkles } from 'lucide-react';
 
 const faqs = [
   {
-    q: 'PharmLearn qanday Jitter template larga asoslangan?',
-    a: "Hero - Gradient Background Loop, Features - Bento + Vector Animation, Courses - Orbit: Cards, Testimonials - The Stack, SocialProof - Orbit: Social Media Showreel, Barcha premium glass va orbit motion bilan Jitter.video dan ilhomlanib yaratildi.",
+    q: 'PharmLearn qanday premium tajribaga asoslangan?',
+    a: "Hero — gradient background loop, Features — bento + vector animation, Courses — orbit cards, Testimonials — stack cards. Barcha bo‘limlar premium glass va silliq motion tizimi bilan ishlab chiqildi.",
   },
   {
     q: 'Premium dizayn qanday afzallik beradi?',
@@ -14,19 +14,19 @@ const faqs = [
   },
   {
     q: 'Sertifikatlar rasman tan olinadimi?',
-    a: "Ha, Jitter premium glass dizaynidagi sertifikatlar O'zbekiston SSV va xalqaro tashkilotlar tomonidan tan olinadi. Orbit verification bilan.",
+    a: "Ha, Premium glass dizaynidagi sertifikatlar O'zbekiston SSV va xalqaro tashkilotlar tomonidan tan olinadi. Orbit verification bilan.",
   },
   {
     q: 'Kurslarni qancha vaqtda tugatish mumkin?',
     a: "Har bir orbit card o'z tezligingizda. O'rtacha 4-8 hafta, lekin motion progress bilan o'zingizga mos ritmda.",
   },
   {
-    q: 'Mobil ilova ham Jitter silliqlikdami?',
+    q: 'Mobil ilova ham Premium silliqlikdami?',
     a: 'Albatta! iOS va Android ilovalar 120fps motion, orbit gestures, glass effect bilan premium ishlaydi. Offline ham.',
   },
   {
     q: 'Pulni qaytarish kafolati bormi?',
-    a: '30 kun to‘liq kafolat. Jitter premium orbit kabi silliq bekor qilish — hech qanday savolsiz.',
+    a: '30 kun to‘liq kafolat. Premium orbit kabi silliq bekor qilish — hech qanday savolsiz.',
   },
 ];
 
@@ -63,7 +63,7 @@ export default function FAQ() {
             transition={{ duration: 0.6, delay: 0.14 }}
             className="mt-4 text-[14px] leading-[1.6] text-dark-500"
           >
-            Jitter premium template lar haqida eng ko‘p so‘raladigan savollar — stacked accordion.
+            Premium platforma haqida eng ko‘p so‘raladigan savollar — stacked accordion.
           </motion.p>
         </div>
 

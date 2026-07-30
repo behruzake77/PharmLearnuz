@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { Star, Clock, ArrowRight, BookOpen, Search, X, Play, FlaskConical, Sparkles } from 'lucide-react';
+import { Star, Clock, ArrowRight, BookOpen, Search, X, Play, FlaskConical } from 'lucide-react';
 import { realDrugsData, DrugData } from '../data/drugData';
 
 interface CoursesProps {
@@ -47,7 +47,7 @@ export default function Courses({ onNavigate }: CoursesProps) {
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-900 text-white text-[11px] font-bold tracking-[0.12em] uppercase mb-4"
             >
               <BookOpen className="w-3.5 h-3.5" />
-              JITTER ORBIT • Дорилар каталоги
+              PREMIUM ORBIT • Дорилар каталоги
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -66,7 +66,7 @@ export default function Courses({ onNavigate }: CoursesProps) {
             className="flex flex-col gap-3"
           >
             <p className="text-[15px] leading-[1.6] text-dark-500 max-w-[420px]">
-              <a href="https://gopharm.uz" target="_blank" rel="noopener noreferrer" className="font-semibold text-dark-900 underline decoration-primary-200">GoPharm.uz</a> дан haqiqiy ma'lumotlar bilan Jitter Orbit Cards uslubida.
+              <a href="https://gopharm.uz" target="_blank" rel="noopener noreferrer" className="font-semibold text-dark-900 underline decoration-primary-200">GoPharm.uz</a> дан haqiqiy ma'lumotlar bilan Premium Orbit Cards uslubida.
             </p>
             <div className="flex items-center gap-2">
               {levels.slice(0, 3).map(l => (
@@ -82,7 +82,7 @@ export default function Courses({ onNavigate }: CoursesProps) {
           </motion.div>
         </div>
 
-        {/* Orbit Cards Grid - Jitter style */}
+        {/* Orbit Cards Grid - Premium style */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {searched.slice(0, 6).map((drug, i) => (
             <motion.div
@@ -96,7 +96,7 @@ export default function Courses({ onNavigate }: CoursesProps) {
               {/* Top shine */}
               <div className="absolute top-0 inset-x-6 h-[1px] bg-gradient-to-r from-transparent via-primary-200/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              {/* Image area - Jitter preview */}
+              {/* Image area - Premium preview */}
               <div className="relative h-[220px] bg-gradient-to-br from-dark-50 to-primary-50/50 p-5 overflow-hidden">
                 {/* Orbit rings bg */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-[0.06] group-hover:opacity-[0.10] transition-opacity">
@@ -114,7 +114,7 @@ export default function Courses({ onNavigate }: CoursesProps) {
                   />
                 </div>
 
-                {/* Floating badges - Jitter style */}
+                {/* Floating badges - Premium style */}
                 <div className="absolute top-4 left-4 flex items-center gap-2">
                   <span className={`text-[10px] font-bold tracking-wider px-2.5 py-1 rounded-full ${drug.tagColor} shadow-sm`}>{drug.tag}</span>
                 </div>
@@ -178,7 +178,7 @@ export default function Courses({ onNavigate }: CoursesProps) {
             onClick={() => setShowModal(true)}
             className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-dark-900/[0.08] shadow-sm hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] hover:border-dark-900/[0.12] text-[13px] font-semibold tracking-tight text-dark-700 hover:text-dark-900 transition-all cursor-pointer"
           >
-            Барча {realDrugsData.length}+ препараtlарни кўриш — Jitter Orbit Grid
+            Барча {realDrugsData.length}+ препараtlарни кўриш — Premium Orbit Grid
             <span className="w-7 h-7 rounded-full bg-dark-900 text-white flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
               <ArrowRight className="w-4 h-4" />
             </span>
@@ -366,7 +366,7 @@ function DrugDetailModal({ drug, onClose, onNavigate }: { drug: DrugData; onClos
                 <div className="w-12 h-12 rounded-[12px] bg-white/10 flex items-center justify-center"><FlaskConical className="w-6 h-6" /></div>
                 <div className="flex-1">
                   <h3 className="font-display font-semibold text-[15px]">Video dars: {drug.activeSubstance}</h3>
-                  <p className="text-[12px] text-white/60 mt-1">7 бөлим • 24:30 • Jitter motion premium</p>
+                  <p className="text-[12px] text-white/60 mt-1">7 бөлим • 24:30 • Premium motion</p>
                   <div className="mt-4 flex gap-2">
                     <button onClick={() => { window.dispatchEvent(new CustomEvent('open-video-lesson')); onClose(); }} className="px-4 py-2 rounded-full bg-white text-dark-900 text-[12px] font-semibold flex items-center gap-1.5 hover:bg-dark-50 cursor-pointer"><Play className="w-3.5 h-3.5" /> Кўриш</button>
                     <button onClick={() => onNavigate('register')} className="px-4 py-2 rounded-full bg-white/10 text-white text-[12px] font-semibold hover:bg-white/15 cursor-pointer">Тўлиқ дары — Register</button>

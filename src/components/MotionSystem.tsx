@@ -1,48 +1,57 @@
 import { motion } from 'framer-motion';
-import { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
+import { useIsMobile } from '../hooks/useIsMobile';
 
-// Shakllanadigan gradient background loop - Jitter "Gradient Background Loop" template uslubida
+const orbitStyle = (radius: string) => ({ '--orbit-radius': radius }) as CSSProperties;
+
+// Premium procedural gradient background loop
 export function ProceduralGradientLoop({ children, className = '' }: { children?: ReactNode; className?: string }) {
+  const isMobile = useIsMobile();
+
+  const primaryMotion = isMobile ? undefined : {
+    scale: [1, 1.2, 1],
+    rotate: [0, 5, 0],
+    x: [0, 30, 0],
+    y: [0, -20, 0],
+  };
+  const secondaryMotion = isMobile ? undefined : {
+    scale: [1, 1.3, 1],
+    rotate: [0, -8, 0],
+    x: [0, -20, 0],
+    y: [0, 30, 0],
+  };
+  const violetMotion = isMobile ? undefined : {
+    scale: [1, 1.25, 1],
+    x: [0, 40, 0],
+  };
+
   return (
     <div className={`relative overflow-hidden ${className}`}>
-      {/* Mesh gradient layers - Jitter style */}
+      {/* Mesh gradient layers */}
       <div className="absolute inset-0">
         <motion.div
-          animate={{ 
-            scale: [1, 1.2, 1],
-            rotate: [0, 5, 0],
-            x: [0, 30, 0],
-            y: [0, -20, 0]
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          animate={primaryMotion}
+          transition={isMobile ? undefined : { duration: 20, repeat: Infinity, ease: 'easeInOut' }}
           className="absolute -top-1/2 -left-1/2 w-[120%] h-[120%] rounded-full blur-[120px] opacity-[0.18]"
           style={{ background: 'radial-gradient(circle at center, #1a6df5 0%, transparent 70%)' }}
         />
         <motion.div
-          animate={{ 
-            scale: [1, 1.3, 1],
-            rotate: [0, -8, 0],
-            x: [0, -20, 0],
-            y: [0, 30, 0]
-          }}
-          transition={{ duration: 24, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          animate={secondaryMotion}
+          transition={isMobile ? undefined : { duration: 24, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
           className="absolute -bottom-1/2 -right-1/2 w-[130%] h-[130%] rounded-full blur-[130px] opacity-[0.14]"
           style={{ background: 'radial-gradient(circle at center, #10b981 0%, transparent 70%)' }}
         />
         <motion.div
-          animate={{ 
-            scale: [1, 1.25, 1],
-            x: [0, 40, 0],
-          }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          animate={violetMotion}
+          transition={isMobile ? undefined : { duration: 18, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
           className="absolute top-[30%] left-[40%] w-[80%] h-[80%] rounded-full blur-[100px] opacity-[0.10]"
           style={{ background: 'radial-gradient(circle at center, #8b5cf6 0%, transparent 70%)' }}
         />
       </div>
-      
+
       {/* Grid overlay */}
       <div className="absolute inset-0 bg-grid opacity-[0.6] pointer-events-none" />
-      
+
       {/* Content */}
       <div className="relative z-10">
         {children}
@@ -51,55 +60,59 @@ export function ProceduralGradientLoop({ children, className = '' }: { children?
   );
 }
 
-// Orbit System - Jitter "Orbit: Cards" template
-export function OrbitSystem() {
+// Orbit System
+export function OrbitSystem({ className = '' }: { className?: string }) {
+  const isMobile = useIsMobile();
+
+  if (isMobile) return null;
+
   return (
-    <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+    <div className={`absolute inset-0 pointer-events-none flex items-center justify-center ${className}`}>
       {/* Orbit rings */}
       <div className="relative w-[520px] h-[520px]">
         {/* Ring 1 */}
         <motion.div
           animate={{ rotate: 360 }}
-          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
           className="absolute inset-0 rounded-full border border-dashed border-primary-200/20"
         />
         {/* Ring 2 */}
         <motion.div
           animate={{ rotate: -360 }}
-          transition={{ duration: 55, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 55, repeat: Infinity, ease: 'linear' }}
           className="absolute inset-[60px] rounded-full border border-dashed border-emerald-200/20"
         />
         {/* Ring 3 */}
         <motion.div
           animate={{ rotate: 360 }}
-          transition={{ duration: 70, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 70, repeat: Infinity, ease: 'linear' }}
           className="absolute inset-[120px] rounded-full border border-dashed border-violet-200/15"
         />
 
         {/* Orbit dots */}
         <motion.div
-          style={{ '--orbit-radius': '260px' } as any}
+          style={orbitStyle('260px')}
           animate={{ rotate: 360 }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
           className="absolute top-1/2 left-1/2 w-3 h-3 -mt-1.5 -ml-1.5"
         >
-          <div className="orbit-item w-2 h-2 rounded-full bg-primary-400 shadow-lg shadow-primary-400/30" style={{ '--orbit-radius': '260px' } as any} />
+          <div className="orbit-item w-2 h-2 rounded-full bg-primary-400 shadow-lg shadow-primary-400/30" style={orbitStyle('260px')} />
         </motion.div>
-        
+
         <motion.div
-          style={{ '--orbit-radius': '200px' } as any}
+          style={orbitStyle('200px')}
           animate={{ rotate: -360 }}
-          transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 35, repeat: Infinity, ease: 'linear' }}
           className="absolute top-1/2 left-1/2 w-3 h-3 -mt-1.5 -ml-1.5"
         >
-          <div className="orbit-item w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-lg shadow-emerald-400/30" style={{ '--orbit-radius': '200px' } as any} />
+          <div className="orbit-item w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-lg shadow-emerald-400/30" style={orbitStyle('200px')} />
         </motion.div>
       </div>
     </div>
   );
 }
 
-// The Stack Card - Jitter "The Stack: Testimonial" uslubi
+// The Stack Card
 export function StackCards() {
   const cards = [
     { rot: '-6deg', z: 1, bg: 'from-white to-primary-50/50', label: 'GMP Standard', value: '100% mos', icon: '✓' },
@@ -111,12 +124,12 @@ export function StackCards() {
     <div className="relative w-full h-[420px] flex items-center justify-center">
       {cards.map((card, i) => (
         <motion.div
-          key={i}
+          key={card.label}
           initial={{ y: 50, opacity: 0, rotate: 0 }}
           animate={{ y: 0, opacity: 1, rotate: card.rot }}
           transition={{ delay: i * 0.15 + 0.5, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          style={{ zIndex: card.z, '--rot': card.rot } as any}
-          className={`absolute w-[340px] ${card.main ? 'h-[220px] shadow-2xl shadow-primary-500/10' : 'h-[180px]'} rounded-[24px] p-6 jitter-card bg-gradient-to-br ${card.bg} 
+          style={{ zIndex: card.z, '--rot': card.rot } as CSSProperties}
+          className={`absolute w-[340px] ${card.main ? 'h-[220px] shadow-2xl shadow-primary-500/10' : 'h-[180px]'} rounded-[24px] p-6 premium-card bg-gradient-to-br ${card.bg}
             ${card.main ? 'border-primary-100' : 'opacity-90 scale-[0.94]'}
             flex flex-col justify-between
           `}
@@ -142,7 +155,7 @@ export function StackCards() {
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: '72%' }}
-                    transition={{ delay: 1.2, duration: 1.2, ease: "easeOut" }}
+                    transition={{ delay: 1.2, duration: 1.2, ease: 'easeOut' }}
                     className="h-full bg-gradient-to-r from-primary-600 to-emerald-500 rounded-full"
                   />
                 </div>
@@ -156,13 +169,13 @@ export function StackCards() {
   );
 }
 
-// Premium Badge - Jitter "Share Your Work" uslubi
+// Premium Badge
 export function PremiumBadge({ children }: { children: ReactNode }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: [0.22,1,0.36,1] }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className="inline-flex items-center gap-2.5 pl-2 pr-4 py-1.5 rounded-full bg-white border border-dark-100 shadow-[0_4px_16px_rgba(0,0,0,0.04)]"
     >
       <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gradient-to-r from-primary-600 to-emerald-500 text-white text-[11px] font-bold tracking-wider uppercase shadow-sm">
@@ -177,7 +190,7 @@ export function PremiumBadge({ children }: { children: ReactNode }) {
   );
 }
 
-// Vector Pattern - Jitter vector animation
+// Vector Pattern
 export function VectorPattern({ className = '' }: { className?: string }) {
   return (
     <svg className={`pointer-events-none ${className}`} width="200" height="200" viewBox="0 0 200 200" fill="none">

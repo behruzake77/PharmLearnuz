@@ -7,7 +7,7 @@ const testimonials = [
     name: 'Madina Karimova',
     role: 'Klinik farmasevt, Toshkent',
     avatar: 'https://images.pexels.com/photos/37272329/pexels-photo-37272329.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    text: "Jitter motion uslubidagi premium dizayn va interaktiv darslar mening karyeramni o'zgartirdi. Maoshim 2x oshdi!",
+    text: "Premium motion uslubidagi premium dizayn va interaktiv darslar mening karyeramni o'zgartirdi. Maoshim 2x oshdi!",
     rating: 5,
     tag: 'The Stack',
     color: 'from-blue-500 to-violet-500',
@@ -25,7 +25,7 @@ const testimonials = [
     name: 'Nilufar Azimova',
     role: 'Farmasevt-stajyor, Buxoro',
     avatar: 'https://images.pexels.com/photos/32315949/pexels-photo-32315949.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    text: "O'zbek tilidagi premium kontent topish qiyin edi. PharmLearn Jitter sifat darajasida hal qildi.",
+    text: "O'zbek tilidagi premium kontent topish qiyin edi. PharmLearn Premium sifat darajasida hal qildi.",
     rating: 5,
     tag: 'Gradient Loop',
     color: 'from-amber-500 to-orange-500',
@@ -43,7 +43,7 @@ const testimonials = [
     name: 'Dilorom Tursunova',
     role: 'Dorixona farmasevti, Namangan',
     avatar: 'https://images.pexels.com/photos/7640741/pexels-photo-7640741.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    text: 'Mobil ilova Jitter kabi silliq ishlaydi. Sertifikat professional tan olinishimga hissa qoʻshdi.',
+    text: 'Mobil ilova Premium kabi silliq ishlaydi. Sertifikat professional tan olinishimga hissa qoʻshdi.',
     rating: 5,
     tag: 'Mobile First',
     color: 'from-slate-600 to-dark-800',
@@ -94,11 +94,11 @@ export default function Testimonials() {
             transition={{ duration: 0.6, delay: 0.14 }}
             className="text-[15px] leading-[1.6] text-dark-500 max-w-[380px]"
           >
-            Jitter “The Stack: Testimonial” template uslubida 10,000+ talabalar silliq orbitda fikr bildirishadi.
+            Premium “The Stack: Testimonial” template uslubida 10,000+ talabalar silliq orbitda fikr bildirishadi.
           </motion.p>
         </div>
 
-        {/* Stacked testimonials - Jitter style */}
+        {/* Stacked testimonials - Premium style */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {testimonials.map((t, i) => (
             <motion.div

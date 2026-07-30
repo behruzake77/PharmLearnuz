@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, MotionConfig, motion } from 'framer-motion';
 import { X, Play } from 'lucide-react';
 import { AuthContext, useAuthProvider } from './hooks/useAuth';
 import { VideoLessonPlayer } from './components/VideoLesson';
@@ -8,8 +8,10 @@ import AdminPanel from './components/admin/AdminPanel';
 import { BannerCarousel, NewsSection } from './components/promo/AnnouncementBar';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import IntroLoader from './components/IntroLoader';
 import SocialProof from './components/SocialProof';
 import Features from './components/Features';
+import Showcase from './components/Showcase';
 import Courses from './components/Courses';
 import Benefits from './components/Benefits';
 import Testimonials from './components/Testimonials';
@@ -77,6 +79,7 @@ function AppContent() {
                 <NewsSection />
               </section>
               <Features />
+              <Showcase />
               <Courses onNavigate={handleNavigate} onShowAll={() => setShowAllCourses(true)} />
               <Benefits onNavigate={handleNavigate} />
               <Testimonials />
@@ -210,10 +213,14 @@ function AppContent() {
 
 export default function App() {
   const auth = useAuthProvider();
+  const [introComplete, setIntroComplete] = useState(false);
+  const handleIntroComplete = useCallback(() => setIntroComplete(true), []);
 
   return (
     <AuthContext.Provider value={auth}>
-      <AppContent />
+      <MotionConfig reducedMotion="user">
+        {introComplete ? <AppContent /> : <IntroLoader onComplete={handleIntroComplete} />}
+      </MotionConfig>
     </AuthContext.Provider>
   );
 }

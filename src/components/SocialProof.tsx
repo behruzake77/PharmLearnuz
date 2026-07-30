@@ -56,7 +56,7 @@ export default function SocialProof() {
           >
             <div className="px-3 py-1 rounded-full bg-dark-900 text-white text-[10px] font-bold tracking-[0.12em] uppercase">TRUSTED BY</div>
             <p className="text-[13px] font-medium tracking-tight text-dark-500">
-              Ishonchli tashkilotlar • <span className="text-dark-900 font-semibold">Jitter motion dizayn</span>
+              Ishonchli tashkilotlar • <span className="text-dark-900 font-semibold">Premium motion dizayn</span>
             </p>
           </motion.div>
 
@@ -72,13 +72,13 @@ export default function SocialProof() {
         </div>
       </div>
 
-      {/* Double marquee - Jitter Orbit Showreel style */}
+      {/* Double marquee - Premium Orbit Showreel style */}
       <div className="space-y-3">
         <MarqueeRow />
         <MarqueeRow reverse />
       </div>
 
-      {/* Metrics bar - Jitter style */}
+      {/* Metrics bar - Premium style */}
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 mt-10">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {[

@@ -10,7 +10,7 @@ interface PricingProps {
 const plans = [
   {
     name: 'Starter',
-    description: 'Jitter motion bilan tanishing',
+    description: 'Premium motion bilan tanishing',
     monthlyPrice: 0,
     yearlyPrice: 0,
     isFree: true,
@@ -28,13 +28,13 @@ const plans = [
   },
   {
     name: 'Professional',
-    description: 'Premium Jitter ekotizimi to‘liq',
+    description: 'To‘liq premium ekotizim',
     monthlyPrice: 99000,
     yearlyPrice: 79000,
     accent: 'from-primary-600 to-violet-600',
     features: [
       { text: 'Barcha kurslar — Orbit cheksiz', included: true },
-      { text: '4K + Jitter motion darslar', included: true },
+      { text: '4K + Premium motion darslar', included: true },
       { text: 'Hamjamiyat + Stack testimonial', included: true },
       { text: 'Premium mobil', included: true },
       { text: 'Rasmiy sertifikatlar — glass', included: true },
@@ -45,7 +45,7 @@ const plans = [
   },
   {
     name: 'Enterprise',
-    description: 'Jamoalar uchun Jitter scale',
+    description: 'Jamoalar uchun Premium scale',
     monthlyPrice: 199000,
     yearlyPrice: 159000,
     accent: 'from-emerald-600 to-teal-600',
@@ -84,7 +84,7 @@ export default function Pricing({ onNavigate }: PricingProps) {
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-900 text-white text-[11px] font-bold tracking-[0.12em] uppercase mb-5"
           >
             <Crown className="w-3.5 h-3.5" />
-            Jitter pricing • Narxlar
+            Premium pricing • Narxlar
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -100,7 +100,7 @@ export default function Pricing({ onNavigate }: PricingProps) {
             transition={{ duration: 0.6, delay: 0.14 }}
             className="mt-4 text-[15px] leading-[1.6] text-dark-500"
           >
-            Jitter motion premium — 7 kun bepul, 30 kun kafolat. Orbit kabi silliq yangilang.
+            Premium motion — 7 kun bepul, 30 kun kafolat. Orbit kabi silliq yangilang.
           </motion.p>
         </div>
 
@@ -142,7 +142,7 @@ export default function Pricing({ onNavigate }: PricingProps) {
                 {plan.popular && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                     <div className="flex items-center gap-1.5 px-4 py-1 rounded-full bg-dark-900 text-white text-[11px] font-bold tracking-widest uppercase shadow-lg">
-                      <Star className="w-3 h-3 fill-white" /> Eng mashhur • Jitter
+                      <Star className="w-3 h-3 fill-white" /> Eng mashhur • Premium
                     </div>
                   </div>
                 )}
@@ -156,7 +156,7 @@ export default function Pricing({ onNavigate }: PricingProps) {
                   {plan.isFree ? (
                     <div className="flex items-baseline gap-2">
                       <span className="font-display text-[40px] font-[800] tracking-tight text-dark-900">Bepul</span>
-                      <span className="text-[13px] text-dark-400">• Jitter preview</span>
+                      <span className="text-[13px] text-dark-400">• Premium preview</span>
                     </div>
                   ) : (
                     <>
@@ -211,7 +211,7 @@ export default function Pricing({ onNavigate }: PricingProps) {
           transition={{ duration: 0.6, delay: 0.7 }}
           className="text-center text-[12px] font-medium tracking-tight text-dark-400 mt-8 flex items-center justify-center gap-2"
         >
-          <Zap className="w-3.5 h-3.5" /> 🔒 30 kun kafolat • Jitter silliqlik • Istalgan vaqtda bekor qilish — Premium orbit
+          <Zap className="w-3.5 h-3.5" /> 🔒 30 kun kafolat • Premium silliqlik • Istalgan vaqtda bekor qilish — Premium orbit
         </motion.p>
       </div>
     </section>

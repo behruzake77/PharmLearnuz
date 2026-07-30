@@ -54,9 +54,9 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* ==== JITTER-INSPIRED PREMIUM UTILS ==== */
+/* ==== PREMIUM-INSPIRED PREMIUM UTILS ==== */
 
-/* Glass morphism premium - like Jitter UI */
+/* Glass morphism premium - like Premium UI */
 .glass {
   background: rgba(255, 255, 255, 0.78);
   backdrop-filter: blur(24px) saturate(180%);
@@ -81,13 +81,13 @@ body {
   box-shadow: 0 20px 80px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08);
 }
 
-.jitter-card {
+.premium-card {
   background: white;
   border: 1px solid rgba(15,23,42,0.06);
   box-shadow: 0 1px 2px rgba(0,0,0,0.02), 0 4px 16px rgba(15,23,42,0.04), 0 16px 48px rgba(15,23,42,0.03);
   transition: all 0.5s cubic-bezier(0.22,1,0.36,1);
 }
-.jitter-card:hover {
+.premium-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(15,23,42,0.08), 0 24px 80px rgba(15,23,42,0.06);
   border-color: rgba(26,109,245,0.12);
@@ -118,7 +118,7 @@ body {
               radial-gradient(at 0% 100%, rgba(16,185,129,0.08) 0px, transparent 50%);
 }
 
-/* Procedural Gradient Loop - Jitter style */
+/* Procedural Gradient Loop - Premium style */
 .procedural-gradient {
   background: linear-gradient(120deg, #eef7ff, #d9edff, #d1fae5, #bce0ff, #a7f3d0);
   background-size: 400% 400%;
@@ -131,7 +131,7 @@ body {
   animation: proceduralShift 20s ease infinite;
 }
 
-/* Orbit animation - Jitter Orbit templates */
+/* Orbit animation - Premium Orbit templates */
 @keyframes orbit {
   from { transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg); }
   to   { transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg); }
@@ -194,7 +194,7 @@ body {
   100% { transform: translateY(0) scale(1) rotate(var(--rot)); opacity: 1; }
 }
 
-@keyframes jitterBounce {
+@keyframes premiumBounce {
   0%, 100% { transform: translateY(0) scale(1); }
   15% { transform: translateY(-3px) scale(1.02); }
   30% { transform: translateY(0) scale(1); }
@@ -205,7 +205,7 @@ body {
 .animate-pulse-glow { animation: pulse-glow 4s ease-in-out infinite; }
 .animate-spin-slow { animation: spin-slow 20s linear infinite; }
 .animate-marquee { animation: marquee 30s linear infinite; }
-.animate-jitter { animation: jitterBounce 0.6s ease; }
+.animate-premium { animation: premiumBounce 0.6s ease; }
 
 /* Shimmer premium button */
 .shimmer-btn { position: relative; overflow: hidden; isolation: isolate; }
@@ -288,4 +288,11 @@ body {
   background: linear-gradient(135deg, rgba(26,109,245,0.2), rgba(16,185,129,0.2), rgba(139,92,246,0.15));
   border-radius: inherit;
   z-index: -1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

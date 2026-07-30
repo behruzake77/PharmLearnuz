@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Play, ArrowRight, Sparkles, Check, Star, GraduationCap, FlaskConical, Award } from 'lucide-react';
-import { ProceduralGradientLoop, OrbitSystem, VectorPattern } from './JitterPremium';
+import { ProceduralGradientLoop, OrbitSystem, VectorPattern } from './MotionSystem';
 import { useRef } from 'react';
 
 interface HeroProps {
@@ -16,29 +16,29 @@ export default function Hero({ onNavigate, onShowVideo }: HeroProps) {
 
   return (
     <section ref={ref} id="home" className="relative min-h-[100vh] flex items-center pt-20 pb-10 overflow-hidden selection:bg-primary-500/20">
-      {/* === JITTER PROCEDURAL GRADIENT BACKGROUND LOOP === */}
+      {/* === PREMIUM PROCEDURAL GRADIENT BACKGROUND LOOP === */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[#fcfdff]" />
-        {/* Mesh gradients - Jitter template style */}
+        {/* Mesh gradients - Premium template style */}
         <ProceduralGradientLoop className="absolute inset-0">
           <div />
         </ProceduralGradientLoop>
         
-        {/* Extra blurred orbs like Jitter */}
+        {/* Extra blurred orbs like Premium */}
         <motion.div
           style={{ y }}
-          className="absolute -top-24 -left-32 w-[600px] h-[600px] rounded-full blur-[120px] opacity-20 pointer-events-none"
+          className="absolute -top-16 -left-24 w-[360px] h-[360px] md:-top-24 md:-left-32 md:w-[600px] md:h-[600px] rounded-full blur-[75px] md:blur-[120px] opacity-20 pointer-events-none"
         >
           <div className="w-full h-full bg-gradient-to-br from-primary-400 via-primary-500 to-violet-400 rounded-full" />
         </motion.div>
         <motion.div
           style={{ y }}
-          className="absolute -bottom-32 -right-32 w-[700px] h-[700px] rounded-full blur-[140px] opacity-[0.14] pointer-events-none"
+          className="absolute -bottom-24 -right-28 w-[380px] h-[380px] md:-bottom-32 md:-right-32 md:w-[700px] md:h-[700px] rounded-full blur-[80px] md:blur-[140px] opacity-[0.14] pointer-events-none"
         >
           <div className="w-full h-full bg-gradient-to-br from-emerald-300 via-teal-400 to-cyan-400 rounded-full" />
         </motion.div>
 
-        {/* Subtle grid - Jitter style */}
+        {/* Subtle grid - Premium style */}
         <div className="absolute inset-0 bg-grid opacity-[0.4]" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white" />
       </div>
@@ -46,9 +46,9 @@ export default function Hero({ onNavigate, onShowVideo }: HeroProps) {
       <motion.div style={{ opacity }} className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-8 items-center">
           
-          {/* LEFT: Copy - Jitter Typography System */}
+          {/* LEFT: Copy - Premium Typography System */}
           <div className="relative max-w-[640px]">
-            {/* Premium pill badge - Jitter Share Your Work */}
+            {/* Premium pill badge - Premium Share Your Work */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -62,11 +62,11 @@ export default function Hero({ onNavigate, onShowVideo }: HeroProps) {
                 </span>
                 #1 PLATFORMA
               </span>
-              <span className="text-[13px] font-medium text-dark-600 tracking-tight">Jitter motion dizaynidan ilhomlangan</span>
+              <span className="text-[13px] font-medium text-dark-600 tracking-tight">Premium motion dizaynidan ilhomlangan</span>
               <Sparkles className="w-3.5 h-3.5 text-amber-400 ml-1 group-hover:rotate-12 transition-transform" />
             </motion.div>
 
-            {/* Headline - Jitter bold display */}
+            {/* Headline - Premium bold display */}
             <div className="relative">
               <motion.h1
                 initial={{ opacity: 0, y: 24 }}
@@ -101,7 +101,7 @@ export default function Hero({ onNavigate, onShowVideo }: HeroProps) {
               ishonch bildirgan <span className="font-semibold text-dark-900 underline decoration-primary-200 decoration-2 underline-offset-4">premium platforma</span>da o'rganing.
             </motion.p>
 
-            {/* CTA - Jitter style buttons */}
+            {/* CTA - Premium style buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -134,7 +134,7 @@ export default function Hero({ onNavigate, onShowVideo }: HeroProps) {
               </button>
             </motion.div>
 
-            {/* Trust row - Jitter social proof pill */}
+            {/* Trust row - Premium social proof pill */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -144,11 +144,13 @@ export default function Hero({ onNavigate, onShowVideo }: HeroProps) {
               <div className="flex items-center gap-3 pl-1.5 pr-4 py-1.5 rounded-full bg-white border border-dark-100 shadow-sm">
                 <div className="flex -space-x-2.5">
                   {[
-                    'https://images.pexels.com/photos/37272329/pexels-photo-37272329.png?auto=compress&cs=tinysrgb&w=80',
-                    'https://images.pexels.com/photos/19601385/pexels-photo-19601385.jpeg?auto=compress&cs=tinysrgb&w=80',
-                    'https://images.pexels.com/photos/7640741/pexels-photo-7640741.jpeg?auto=compress&cs=tinysrgb&w=80',
-                  ].map((src, i) => (
-                    <img key={i} src={src} alt="" className="w-8 h-8 rounded-full border-[2.5px] border-white object-cover shadow-sm" />
+                    { initials: 'MK', color: 'from-primary-500 to-violet-500' },
+                    { initials: 'JA', color: 'from-emerald-500 to-teal-500' },
+                    { initials: 'NA', color: 'from-amber-500 to-orange-500' },
+                  ].map((avatar) => (
+                    <div key={avatar.initials} className={`w-8 h-8 rounded-full border-[2.5px] border-white bg-gradient-to-br ${avatar.color} shadow-sm flex items-center justify-center text-[10px] font-bold text-white`}>
+                      {avatar.initials}
+                    </div>
                   ))}
                 </div>
                 <div className="flex flex-col leading-none">
@@ -169,12 +171,12 @@ export default function Hero({ onNavigate, onShowVideo }: HeroProps) {
             </motion.div>
           </div>
 
-          {/* RIGHT: Jitter Orbit + Stack Visual */}
+          {/* RIGHT: Premium Orbit + Stack Visual */}
           <div className="relative lg:h-[640px] flex items-center justify-center">
             {/* Orbit system background */}
-            <OrbitSystem />
+            <OrbitSystem className="hidden md:flex" />
 
-            {/* Main premium glass card showcase - Jitter Orbit Cards */}
+            {/* Main premium glass card showcase - Premium Orbit Cards */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9, rotate: -3 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -184,9 +186,9 @@ export default function Hero({ onNavigate, onShowVideo }: HeroProps) {
               {/* Glow behind main card */}
               <div className="absolute -inset-6 bg-gradient-to-br from-primary-500/20 via-violet-500/10 to-emerald-500/20 rounded-[32px] blur-[24px] -z-10" />
 
-              {/* Main hero card - like Jitter template preview */}
+              {/* Main hero card - like Premium template preview */}
               <div className="relative rounded-[28px] bg-white border border-dark-100 shadow-[0_20px_80px_rgba(15,23,42,0.08),0_4px_16px_rgba(15,23,42,0.04)] overflow-hidden">
-                {/* Top bar - window chrome like Jitter */}
+                {/* Top bar - window chrome like Premium */}
                 <div className="flex items-center justify-between px-6 py-4 border-b border-dark-50">
                   <div className="flex items-center gap-2">
                     <div className="w-3 h-3 rounded-full bg-red-400" />
@@ -199,16 +201,16 @@ export default function Hero({ onNavigate, onShowVideo }: HeroProps) {
                   </div>
                 </div>
 
-                {/* Image area with overlay content - Jitter style */}
+                {/* Image area with overlay content - Premium style */}
                 <div className="relative aspect-[4/3] bg-dark-50 overflow-hidden">
                   <img
-                    src="https://images.pexels.com/photos/8667961/pexels-photo-8667961.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=800"
-                    alt="Pharmacy learning"
+                    src="/dashboard-assets/hero-dashboard.webp"
+                    alt="PharmLearn premium dashboard"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-dark-900/70 via-dark-900/10 to-transparent" />
                   
-                  {/* Floating video progress like Jitter editing UI */}
+                  {/* Floating video progress like Premium editing UI */}
                   <div className="absolute bottom-0 left-0 right-0 p-4">
                     <div className="glass-ultra rounded-2xl p-3.5 flex items-center gap-3">
                       <div className="w-10 h-10 rounded-xl bg-dark-900 flex items-center justify-center flex-shrink-0">
@@ -237,7 +239,7 @@ export default function Hero({ onNavigate, onShowVideo }: HeroProps) {
                   </button>
                 </div>
 
-                {/* Bottom meta like Jitter card details */}
+                {/* Bottom meta like Premium card details */}
                 <div className="p-5">
                   <div className="flex items-start justify-between gap-4">
                     <div>
@@ -261,7 +263,7 @@ export default function Hero({ onNavigate, onShowVideo }: HeroProps) {
                 </div>
               </div>
 
-              {/* Floating orbit cards - Jitter Orbit style */}
+              {/* Floating orbit cards - Premium Orbit style */}
               <motion.div
                 animate={{ y: [-6, 6, -6], rotate: [0, 1, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -306,18 +308,18 @@ export default function Hero({ onNavigate, onShowVideo }: HeroProps) {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-gradient-to-br from-primary-200/30 to-emerald-200/20 blur-[50px] rounded-full -z-10" />
             </motion.div>
 
-            {/* Background large typography - Jitter watermark style */}
+            {/* Background large typography - Premium watermark style */}
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center -z-20 overflow-hidden select-none">
               <span className="font-display font-[800] text-[220px] leading-none tracking-[-0.06em] text-dark-900/[0.02]">PHARM</span>
             </div>
           </div>
         </div>
 
-        {/* Bottom edge fade - Jitter seamless transition */}
+        {/* Bottom edge fade - Premium seamless transition */}
         <div className="absolute bottom-0 left-0 right-0 h-[120px] bg-gradient-to-t from-white to-transparent pointer-events-none" />
       </motion.div>
 
-      {/* Scroll indicator - Jitter style */}
+      {/* Scroll indicator - Premium style */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

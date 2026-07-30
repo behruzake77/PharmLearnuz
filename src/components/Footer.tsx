@@ -32,16 +32,16 @@ export default function Footer({ onNavigate }: FooterProps) {
               </div>
               <div className="text-left leading-none">
                 <div className="text-[18px] font-display font-bold tracking-tight text-white">Pharm<span className="text-white/60">Learn</span></div>
-                <div className="text-[10px] font-bold tracking-[0.12em] uppercase text-white/40 mt-0.5">PREMIUM • JITTER EDITION</div>
+                <div className="text-[10px] font-bold tracking-[0.12em] uppercase text-white/40 mt-0.5">PREMIUM EDITION</div>
               </div>
             </button>
             <p className="text-[13px] leading-[1.6] tracking-tight text-white/50 max-w-[360px] mb-6">
-              Jitter.video templates — The Stack, Orbit Cards, Gradient Loop dan ilhomlangan
+              The Stack, Orbit Cards va Gradient Loop patternlari asosida yaratilgan
               O'zbekistondagi #1 farmasevtlar premium platformasi. Motion + glass + orbit.
             </p>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.06] border border-white/10 text-[11px] font-medium tracking-tight text-white/60">
               <Sparkles className="w-3.5 h-3.5 text-primary-300" />
-              Jitter motion premium • 2026
+              Premium motion • 2026
             </div>
             <div className="mt-6 space-y-2.5">
               <a href="mailto:info@pharmlearn.uz" className="flex items-center gap-2.5 text-[12px] tracking-tight text-white/40 hover:text-white/80 transition-colors"><Mail className="w-4 h-4" /> info@pharmlearn.uz</a>
@@ -51,7 +51,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           </div>
 
           <div>
-            <h4 className="text-[11px] font-bold tracking-[0.12em] uppercase text-white mb-4">Platforma • Jitter</h4>
+            <h4 className="text-[11px] font-bold tracking-[0.12em] uppercase text-white mb-4">Platforma • Premium</h4>
             <ul className="space-y-2.5">
               {sections.map((s) => (
                 <li key={s.id}>
@@ -64,7 +64,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           <div>
             <h4 className="text-[11px] font-bold tracking-[0.12em] uppercase text-white mb-4">Kompaniya</h4>
             <ul className="space-y-2.5">
-              <li><button onClick={() => onNavigate('landing')} className="text-[13px] tracking-tight text-white/40 hover:text-white transition-colors cursor-pointer">Biz haqimizda — Jitter</button></li>
+              <li><button onClick={() => onNavigate('landing')} className="text-[13px] tracking-tight text-white/40 hover:text-white transition-colors cursor-pointer">Biz haqimizda — Premium</button></li>
               <li><button onClick={() => onNavigate('landing')} className="text-[13px] tracking-tight text-white/40 hover:text-white transition-colors cursor-pointer">Jamoa • Orbit</button></li>
               <li><button onClick={() => onNavigate('register')} className="text-[13px] tracking-tight text-white/40 hover:text-white transition-colors cursor-pointer">Blog • Motion</button></li>
             </ul>
@@ -80,7 +80,7 @@ export default function Footer({ onNavigate }: FooterProps) {
         </div>
 
         <div className="border-t border-white/[0.06] py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[11px] tracking-tight text-white/30">© {new Date().getFullYear()} PharmLearn • Jitter-inspired premium • Barcha huquqlar</p>
+          <p className="text-[11px] tracking-tight text-white/30">© {new Date().getFullYear()} PharmLearn • Premium platforma • Barcha huquqlar</p>
           <div className="flex items-center gap-3">
             <button onClick={() => onNavigate('admin')} className="text-[11px] tracking-tight px-3 py-1 rounded-full bg-white/[0.06] border border-white/10 text-white/40 hover:text-white/80 cursor-pointer">⚙ Admin • Premium</button>
             <button onClick={scrollToTop} className="w-8 h-8 rounded-full bg-white text-dark-900 flex items-center justify-center hover:bg-white/90 transition-colors cursor-pointer"><ArrowUp className="w-4 h-4" /></button>
