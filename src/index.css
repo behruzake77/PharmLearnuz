@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-sans: "Instrument Sans", "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Bricolage Grotesque", "Instrument Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
   --color-primary-50: #eef7ff;
   --color-primary-100: #d9edff;
   --color-primary-200: #bce0ff;
@@ -40,46 +42,58 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-color: #94a3b8 #f1f5f9;
 }
 
 body {
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  background: #fcfdff;
+  text-rendering: optimizeLegibility;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-::-webkit-scrollbar-thumb {
-  background: #94a3b8;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
-}
+/* ==== JITTER-INSPIRED PREMIUM UTILS ==== */
 
-/* Glass morphism utility */
+/* Glass morphism premium - like Jitter UI */
 .glass {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06), inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+.glass-ultra {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  border: 1px solid rgba(255,255,255,0.5);
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255,255,255,0.8);
 }
 
 .glass-dark {
-  background: rgba(13, 16, 23, 0.75);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(13, 16, 23, 0.82);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 80px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08);
 }
 
-/* Gradient text */
+.jitter-card {
+  background: white;
+  border: 1px solid rgba(15,23,42,0.06);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02), 0 4px 16px rgba(15,23,42,0.04), 0 16px 48px rgba(15,23,42,0.03);
+  transition: all 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+.jitter-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(15,23,42,0.08), 0 24px 80px rgba(15,23,42,0.06);
+  border-color: rgba(26,109,245,0.12);
+}
+
+/* Gradient text - premium */
 .gradient-text {
   background: linear-gradient(135deg, #1a6df5 0%, #10b981 50%, #338dff 100%);
   -webkit-background-clip: text;
@@ -88,13 +102,51 @@ body {
 }
 
 .gradient-text-hero {
-  background: linear-gradient(135deg, #0d1017 0%, #1a6df5 50%, #10b981 100%);
+  background: linear-gradient(110deg, #0d1017 0%, #1a6df5 35%, #10b981 70%, #0d1017 100%);
+  background-size: 200% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: gradientShift 8s ease-in-out infinite;
 }
 
-/* Ambient floating animation */
+.mesh-gradient {
+  background: radial-gradient(at 40% 20%, rgba(26,109,245,0.15) 0px, transparent 50%),
+              radial-gradient(at 80% 0%, rgba(16,185,129,0.12) 0px, transparent 50%),
+              radial-gradient(at 0% 50%, rgba(139,92,246,0.10) 0px, transparent 50%),
+              radial-gradient(at 80% 80%, rgba(26,109,245,0.10) 0px, transparent 50%),
+              radial-gradient(at 0% 100%, rgba(16,185,129,0.08) 0px, transparent 50%);
+}
+
+/* Procedural Gradient Loop - Jitter style */
+.procedural-gradient {
+  background: linear-gradient(120deg, #eef7ff, #d9edff, #d1fae5, #bce0ff, #a7f3d0);
+  background-size: 400% 400%;
+  animation: proceduralShift 18s ease infinite;
+}
+
+.procedural-gradient-dark {
+  background: linear-gradient(120deg, #0d1017, #142757, #064e3b, #1a1f2e, #193e8f);
+  background-size: 400% 400%;
+  animation: proceduralShift 20s ease infinite;
+}
+
+/* Orbit animation - Jitter Orbit templates */
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg); }
+}
+
+@keyframes orbitReverse {
+  from { transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg); }
+  to   { transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg); }
+}
+
+.orbit-item {
+  animation: orbit linear infinite;
+  --orbit-radius: 140px;
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
   33% { transform: translateY(-12px) rotate(1deg); }
@@ -111,9 +163,20 @@ body {
   50% { opacity: 0.8; transform: scale(1.05); }
 }
 
-@keyframes shimmer {
+@keyframes shimmerSlide {
   0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+  100% { transform: translateX(200%); }
+}
+
+@keyframes gradientShift {
+  0%,100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes proceduralShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 @keyframes spin-slow {
@@ -121,85 +184,108 @@ body {
   to { transform: rotate(360deg); }
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-.animate-float-slow {
-  animation: float-slow 8s ease-in-out infinite;
+@keyframes cardStackIn {
+  0% { transform: translateY(20px) scale(0.95) rotate(var(--rot)); opacity: 0; }
+  100% { transform: translateY(0) scale(1) rotate(var(--rot)); opacity: 1; }
 }
 
-.animate-pulse-glow {
-  animation: pulse-glow 4s ease-in-out infinite;
+@keyframes jitterBounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  15% { transform: translateY(-3px) scale(1.02); }
+  30% { transform: translateY(0) scale(1); }
 }
 
-.animate-spin-slow {
-  animation: spin-slow 20s linear infinite;
-}
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-float-slow { animation: float-slow 8s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 4s ease-in-out infinite; }
+.animate-spin-slow { animation: spin-slow 20s linear infinite; }
+.animate-marquee { animation: marquee 30s linear infinite; }
+.animate-jitter { animation: jitterBounce 0.6s ease; }
 
-/* Shimmer effect for buttons */
-.shimmer-btn {
-  position: relative;
-  overflow: hidden;
-}
+/* Shimmer premium button */
+.shimmer-btn { position: relative; overflow: hidden; isolation: isolate; }
 .shimmer-btn::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  animation: shimmer 3s ease-in-out infinite;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(105deg, transparent, rgba(255,255,255,0.35), transparent);
+  animation: shimmerSlide 2.8s ease-in-out infinite;
+  z-index: 2;
 }
 
-/* Grid pattern background */
+/* Grid pattern */
 .bg-grid {
   background-image: 
-    linear-gradient(rgba(26,109,245,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(26,109,245,0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
+    linear-gradient(rgba(26,109,245,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,109,245,0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
 }
 
-/* Auth input focus glow */
-input:focus {
-  transition: all 0.2s ease;
+.bg-grid-dark {
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
 }
 
-/* Checkbox spring animation */
-@keyframes check-bounce {
-  0% { transform: scale(0); }
-  50% { transform: scale(1.2); }
-  100% { transform: scale(1); }
-}
-
-/* Page transition */
-@keyframes page-in {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.page-enter {
-  animation: page-in 0.4s ease-out;
-}
-
-/* Password strength bar transition */
-.strength-bar {
-  transition: width 0.3s ease, background-color 0.3s ease;
-}
-
-/* Noise texture overlay */
+/* Noise */
 .noise-overlay::before {
   content: '';
   position: absolute;
   inset: 0;
-  opacity: 0.03;
+  opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   pointer-events: none;
+  z-index: 1;
+}
+
+/* Premium focus ring */
+.premium-focus:focus-visible {
+  outline: 2px solid #1a6df5;
+  outline-offset: 2px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* Hide scrollbar for marquee */
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
+/* Frosted pill */
+.frosted-pill {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(15,23,42,0.06);
+  box-shadow: 0 4px 24px rgba(15,23,42,0.05), inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+/* Bento shadow */
+.bento-shadow {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02), 0 8px 24px rgba(15,23,42,0.04), 0 16px 48px rgba(15,23,42,0.03);
+}
+
+/* Gradient border */
+.gradient-border {
+  position: relative;
+  background: white;
+  border-radius: 24px;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(135deg, rgba(26,109,245,0.2), rgba(16,185,129,0.2), rgba(139,92,246,0.15));
+  border-radius: inherit;
+  z-index: -1;
 }
