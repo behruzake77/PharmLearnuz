@@ -10,7 +10,7 @@ const features = [
     icon: Video,
     kicker: 'HD STREAMING',
     title: 'Interaktiv video darslar',
-    description: 'Professional 4K videolar, real vaqtda farmatsevtika amaliyotlari. Jitter motion kabi silliq animatsiyalar.',
+    description: 'Professional 4K videolar, real vaqtda farmatsevtika amaliyotlari. Premium motion kabi silliq animatsiyalar.',
     size: 'large',
     gradient: 'from-blue-500 via-primary-500 to-violet-500',
     bg: 'bg-blue-50/50',
@@ -50,7 +50,7 @@ const features = [
     icon: Smartphone,
     kicker: 'MOBILE FIRST',
     title: 'Premium mobil ilova',
-    description: 'iOS va Android’da Jitter silliqligida ishlaydigan app.',
+    description: 'iOS va Android’da Premium silliqligida ishlaydigan app.',
     size: 'small',
     gradient: 'from-cyan-500 to-blue-500',
     bg: 'bg-cyan-50',
@@ -104,7 +104,7 @@ export default function Features() {
       </div>
 
       <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header - Jitter editorial */}
+        {/* Header - Premium editorial */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14 sm:mb-20">
           <div className="max-w-[640px]">
             <motion.div
@@ -114,7 +114,7 @@ export default function Features() {
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-900 text-white text-[11px] font-semibold tracking-[0.14em] uppercase mb-5"
             >
               <Zap className="w-3.5 h-3.5" />
-              Jitter motion • Imkoniyatlar
+              Premium motion • Imkoniyatlar
             </motion.div>
 
             <motion.h2
@@ -143,12 +143,12 @@ export default function Features() {
             transition={{ duration: 0.6, delay: 0.16 }}
             className="text-[16px] sm:text-[17px] leading-[1.6] tracking-[-0.01em] text-dark-500 max-w-[420px] lg:text-right lg:ml-auto"
           >
-            Jitter.video template laridan ilhomlangan premium motion tizimi bilan jihozlangan,
-            zamonaviy texnologiyalar gig ekotizim.
+            Premium motion tizimi bilan jihozlangan,
+            zamonaviy texnologiyalarga boy ekotizim.
           </motion.p>
         </div>
 
-        {/* Bento Grid - Jitter style */}
+        {/* Bento Grid - Premium style */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-5 auto-rows-[minmax(220px,auto)]">
           {features.map((feat, i) => {
             const isLarge = feat.size === 'large';
@@ -175,7 +175,7 @@ export default function Features() {
                   ${spanClass}
                 `}
               >
-                {/* Accent line top - Jitter */}
+                {/* Accent line top - Premium */}
                 <div className={`absolute top-0 left-6 right-6 h-[1px] bg-gradient-to-r ${feat.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
                 {/* Subtle mesh inside */}
@@ -197,7 +197,7 @@ export default function Features() {
                       </div>
                     </div>
 
-                    {/* Mini chart / indicator like Jitter template */}
+                    {/* Mini chart / indicator like Premium template */}
                     <div className="flex items-center gap-1">
                       <div className="hidden sm:flex items-center gap-1 px-2.5 py-1 rounded-full bg-white border border-dark-100 shadow-sm">
                         <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -218,7 +218,7 @@ export default function Features() {
                       {feat.description}
                     </p>
 
-                    {/* Bottom bar like Jitter progress */}
+                    {/* Bottom bar like Premium progress */}
                     {isLarge && (
                       <div className="mt-6 flex items-center gap-3">
                         <div className="flex-1 h-[36px] rounded-full bg-dark-900 flex items-center px-1.5 gap-1.5">
@@ -258,7 +258,7 @@ export default function Features() {
           className="mt-10 flex items-center justify-center gap-2 text-[12px] font-medium text-dark-400"
         >
           <span className="w-6 h-px bg-dark-200" />
-          Jitter premium templates dan ilhomlangan • Vector motion • Orbit system
+          Premium dizayn tizimi • Vector motion • Orbit system
           <span className="w-6 h-px bg-dark-200" />
         </motion.div>
       </div>

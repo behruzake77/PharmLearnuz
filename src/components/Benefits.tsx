@@ -7,7 +7,7 @@ interface BenefitsProps {
 }
 
 const benefits = [
-  'Jitter “Orbit” motion kabi silliq va zamonaviy UI',
+  'Premium orbit motion kabi silliq va zamonaviy UI',
   'Tajribali farmasevt mentorlar bilan bevosita aloqa',
   'Rasmiy sertifikatlar — premium glass dizayn',
   '100% o‘zbek tilida, premium tipografika',
@@ -16,7 +16,7 @@ const benefits = [
 ];
 
 const stats = [
-  { value: '98%', label: 'Qoniqish', sub: 'Jitter premium feedback', icon: Target, gradient: 'from-violet-500 to-primary-500' },
+  { value: '98%', label: 'Qoniqish', sub: 'Premium feedback', icon: Target, gradient: 'from-violet-500 to-primary-500' },
   { value: '3x', label: 'Maosh o‘ish', sub: 'Avg karyera o‘sishi', icon: TrendingUp, gradient: 'from-emerald-500 to-teal-500' },
   { value: '200+', label: 'Kurs', sub: 'Orbit cards katalogi', icon: CheckCircle2, gradient: 'from-amber-500 to-orange-500' },
 ];
@@ -26,7 +26,7 @@ export default function Benefits({ onNavigate }: BenefitsProps) {
 
   return (
     <section id="benefits" ref={ref} className="py-20 sm:py-32 relative overflow-hidden bg-dark-950">
-      {/* Jitter gradient loop dark */}
+      {/* Premium gradient loop dark */}
       <div className="absolute inset-0">
         <motion.div
           animate={{ scale: [1, 1.2, 1], rotate: [0, 10, 0] }}
@@ -52,7 +52,7 @@ export default function Benefits({ onNavigate }: BenefitsProps) {
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/10 text-[11px] font-bold tracking-[0.12em] uppercase text-primary-200 mb-6"
             >
               <Sparkles className="w-3.5 h-3.5" />
-              Jitter premium • Afzalliklar
+              Premium • Afzalliklar
             </motion.div>
 
             <motion.h2
@@ -79,7 +79,7 @@ export default function Benefits({ onNavigate }: BenefitsProps) {
               transition={{ duration: 0.6, delay: 0.14 }}
               className="mt-5 text-[15px] sm:text-[16px] leading-[1.6] tracking-[-0.01em] text-white/60 max-w-[480px]"
             >
-              Jitter.video template larning eng yaxshi pattern lari — The Stack, Orbit, Gradient Loop —
+              Premium motion template larning eng yaxshi pattern lari — The Stack, Orbit, Gradient Loop —
               bitta premium ekotizimda jamlandi. Har bir pixel silliq motion bilan.
             </motion.p>
 
@@ -155,7 +155,7 @@ export default function Benefits({ onNavigate }: BenefitsProps) {
                   Kelajakdagi farmatsevtlar shu yerda o'qiydi 🚀
                 </p>
               </div>
-              {/* Jitter watermark */}
+              {/* Premium watermark */}
               <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">✦</div>
             </motion.div>
           </div>

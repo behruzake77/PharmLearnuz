@@ -53,7 +53,7 @@ export default function Navbar({ onNavigate }: NavbarProps) {
 
   return (
     <>
-      {/* Premium Floating Navbar - Jitter style */}
+      {/* Premium Floating Navbar - Premium style */}
       <motion.nav
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -85,7 +85,7 @@ export default function Navbar({ onNavigate }: NavbarProps) {
             </div>
           </button>
 
-          {/* Center pill navigation - Jitter floating nav */}
+          {/* Center pill navigation - Premium floating nav */}
           <div className="hidden lg:flex items-center gap-1 p-1 rounded-full bg-dark-900/[0.03] border border-dark-900/[0.04]">
             {navLinks.map((link) => (
               <a
@@ -185,7 +185,7 @@ export default function Navbar({ onNavigate }: NavbarProps) {
         </div>
       </motion.nav>
 
-      {/* Mobile menu - Jitter slide panel */}
+      {/* Mobile menu - Premium slide panel */}
       <AnimatePresence>
         {mobileOpen && (
           <>
@@ -257,7 +257,7 @@ export default function Navbar({ onNavigate }: NavbarProps) {
                     <button onClick={() => { setMobileOpen(false); onNavigate('register'); }} className="w-full py-3.5 rounded-full bg-dark-900 text-white text-[14px] font-semibold shadow-lg">Bepul boshlash — Premium</button>
                   </>
                 )}
-                <p className="text-center text-[11px] text-dark-400 mt-2">Jitter motion • 2026 Premium Edition</p>
+                <p className="text-center text-[11px] text-dark-400 mt-2">Premium motion • 2026 Premium Edition</p>
               </div>
             </motion.div>
           </>
