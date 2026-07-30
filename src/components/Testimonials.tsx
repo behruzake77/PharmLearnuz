@@ -1,60 +1,60 @@
 import { motion } from 'framer-motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { Star, Sparkles } from 'lucide-react';
+import { Star } from 'lucide-react';
 
 const testimonials = [
   {
     name: 'Madina Karimova',
     role: 'Klinik farmasevt, Toshkent',
     avatar: 'https://images.pexels.com/photos/37272329/pexels-photo-37272329.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    text: "Jitter motion uslubidagi premium dizayn va interaktiv darslar mening karyeramni o'zgartirdi. Maoshim 2x oshdi!",
+    text: "Interaktiv darslar va amaliy laboratoriya karyeramni o'zgartirdi. Maoshim 2 barobarga oshdi!",
     rating: 5,
-    tag: 'The Stack',
+    tag: 'Premium',
     color: 'from-blue-500 to-violet-500',
   },
   {
     name: 'Jasur Alimov',
     role: 'Dorixona mudiri, Samarqand',
     avatar: 'https://images.pexels.com/photos/19601385/pexels-photo-19601385.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    text: 'Platformadagi orbit cards va vector animatsiyalar juda yoqimli. Mentorlar doim yordamda. 10/10!',
+    text: 'Platforma juda qulay, mentorlar doim yordamda. Kontent sifati ajoyib. 10/10!',
     rating: 5,
-    tag: 'Orbit Cards',
+    tag: 'Mentorlik',
     color: 'from-emerald-500 to-teal-500',
   },
   {
     name: 'Nilufar Azimova',
     role: 'Farmasevt-stajyor, Buxoro',
     avatar: 'https://images.pexels.com/photos/32315949/pexels-photo-32315949.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    text: "O'zbek tilidagi premium kontent topish qiyin edi. PharmLearn Jitter sifat darajasida hal qildi.",
+    text: "O'zbek tilidagi sifatli kontent topish qiyin edi. PharmLearn bu muammoni hal qildi.",
     rating: 5,
-    tag: 'Gradient Loop',
+    tag: 'Kontent',
     color: 'from-amber-500 to-orange-500',
   },
   {
     name: 'Bobur Rahimov',
     role: 'Sifat nazorati mutaxassisi',
     avatar: 'https://images.pexels.com/photos/38740728/pexels-photo-38740728.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    text: 'Farmatsevtik texnologiya kursini tugatib, yirik ishlab chiqarish korxonasida ish topdim. Premium!',
+    text: 'Farmatsevtik texnologiya kursini tugatib, yirik ishlab chiqarish korxonasida ish topdim.',
     rating: 5,
-    tag: 'Premium UI',
+    tag: 'Karyera',
     color: 'from-rose-500 to-pink-500',
   },
   {
     name: 'Dilorom Tursunova',
     role: 'Dorixona farmasevti, Namangan',
     avatar: 'https://images.pexels.com/photos/7640741/pexels-photo-7640741.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    text: 'Mobil ilova Jitter kabi silliq ishlaydi. Sertifikat professional tan olinishimga hissa qoʻshdi.',
+    text: 'Mobil ilova tez va qulay ishlaydi. Sertifikat kasbiy o‘sishimga katta hissa qo‘shdi.',
     rating: 5,
-    tag: 'Mobile First',
-    color: 'from-slate-600 to-dark-800',
+    tag: 'Mobile',
+    color: 'from-slate-600 to-slate-800',
   },
   {
     name: 'Sardor Xalikov',
     role: 'Farmakolog, Ilmiy markaz',
     avatar: 'https://images.pexels.com/photos/23471215/pexels-photo-23471215.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    text: 'Ilmiy metodologiya kursi dissertatsiyam uchun foydali boʻldi. Bu kelajakka investitsiya.',
+    text: 'Ilmiy metodologiya kursi dissertatsiyam uchun juda foydali bo‘ldi. Tavsiya qilaman.',
     rating: 5,
-    tag: 'Research',
+    tag: 'Ilmiy',
     color: 'from-cyan-500 to-blue-500',
   },
 ];
@@ -64,74 +64,67 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" ref={ref} className="py-20 sm:py-28 relative overflow-hidden bg-white">
-      <div className="absolute inset-0 bg-grid opacity-[0.25]" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-primary-50/60 to-transparent blur-[50px] rounded-full" />
+      <div className="absolute inset-0 bg-grid opacity-[0.2] pointer-events-none" />
 
       <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 sm:mb-16">
-          <div className="max-w-[640px]">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+          <div className="max-w-[560px]">
             <motion.div
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-900 text-white text-[11px] font-bold tracking-[0.12em] uppercase mb-4"
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 text-white text-[10px] font-bold tracking-[0.12em] uppercase mb-4"
             >
-              <Sparkles className="w-3.5 h-3.5" />
-              The Stack • Fikrlar
+              Sharhlar
             </motion.div>
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.08 }}
-              className="font-display text-[32px] sm:text-[44px] font-[700] leading-[0.95] tracking-[-0.04em] text-dark-900"
+              transition={{ duration: 0.6, delay: 0.06 }}
+              className="font-display text-[30px] sm:text-[42px] font-[700] leading-[0.96] tracking-[-0.03em] text-slate-900"
             >
-              Talabalar <span className="gradient-text">nima deyishadi</span> — stacked
+              Talabalar <span className="gradient-text">nima deyishadi</span>
             </motion.h2>
           </div>
           <motion.p
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.14 }}
-            className="text-[15px] leading-[1.6] text-dark-500 max-w-[380px]"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-[14px] leading-[1.6] text-slate-500 max-w-[360px]"
           >
-            Jitter “The Stack: Testimonial” template uslubida 10,000+ talabalar silliq orbitda fikr bildirishadi.
+            10 000+ faol o‘quvchilarning haqiqiy fikrlari.
           </motion.p>
         </div>
 
-        {/* Stacked testimonials - Jitter style */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {testimonials.map((t, i) => (
             <motion.div
               key={t.name}
-              initial={{ opacity: 0, y: 24, rotate: i % 2 === 0 ? -1 : 1 }}
-              animate={isVisible ? { opacity: 1, y: 0, rotate: i % 2 === 0 ? -0.5 : 0.5 } : {}}
-              transition={{ duration: 0.6, delay: 0.15 + i * 0.07, ease: [0.22,1,0.36,1] }}
-              whileHover={{ rotate: 0, y: -4, scale: 1.02 }}
-              className="group relative rounded-[24px] bg-white border border-dark-900/[0.06] p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03),0_8px_24px_rgba(15,23,42,0.02)] hover:shadow-[0_16px_48px_rgba(15,23,42,0.08)] hover:border-dark-900/[0.10] transition-all duration-500 cursor-default"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.1 + i * 0.05, ease: [0.22,1,0.36,1] }}
+              className="group relative rounded-[20px] bg-white border border-slate-200 p-5 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(15,23,42,0.06)] hover:border-slate-300 hover:translate-y-[-2px] transition-all duration-300 cursor-default no-flicker"
             >
-              <div className={`absolute top-0 left-6 right-6 h-[1px] bg-gradient-to-r ${t.color} opacity-60`} />
+              <div className={`absolute top-0 left-5 right-5 h-[1px] bg-gradient-to-r ${t.color} opacity-50`} />
 
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-2">
-                  <div className={`px-2.5 py-1 rounded-full bg-gradient-to-r ${t.color} text-white text-[10px] font-bold tracking-widest uppercase shadow-sm`}>{t.tag}</div>
+                  <div className={`px-2 py-1 rounded-full bg-gradient-to-r ${t.color} text-white text-[9px] font-bold tracking-widest uppercase shadow-sm`}>{t.tag}</div>
                   <div className="flex items-center gap-0.5 px-2 py-1 rounded-full bg-amber-50 border border-amber-100">
                     <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-                    <span className="text-[11px] font-bold text-dark-900">{t.rating}</span>
+                    <span className="text-[10px] font-bold text-slate-900">{t.rating}</span>
                   </div>
                 </div>
-                <div className="w-7 h-7 rounded-full bg-dark-50 border border-dark-100 flex items-center justify-center text-[12px] group-hover:rotate-12 transition-transform">“</div>
+                <div className="w-6 h-6 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-[10px]">“</div>
               </div>
 
-              <p className="text-[14px] leading-[1.6] tracking-[-0.01em] text-dark-700 font-[450]">"{t.text}"</p>
+              <p className="text-[13.5px] leading-[1.55] text-slate-700">"{t.text}"</p>
 
-              <div className="mt-6 flex items-center gap-3 pt-4 border-t border-dark-50">
-                <div className="relative">
-                  <img src={t.avatar} alt={t.name} className="w-10 h-10 rounded-full object-cover border border-dark-100 shadow-sm" />
-                  <div className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-white flex items-center justify-center text-[8px] text-white">✓</div>
-                </div>
+              <div className="mt-5 flex items-center gap-3 pt-4 border-t border-slate-100">
+                <img src={t.avatar} alt={t.name} className="w-9 h-9 rounded-full object-cover border border-slate-200" />
                 <div className="flex-1 min-w-0">
-                  <p className="text-[13px] font-semibold tracking-tight text-dark-900 truncate">{t.name}</p>
-                  <p className="text-[11px] text-dark-400 truncate">{t.role}</p>
+                  <p className="text-[12.5px] font-semibold tracking-tight text-slate-900 truncate">{t.name}</p>
+                  <p className="text-[11px] text-slate-400 truncate">{t.role}</p>
                 </div>
               </div>
             </motion.div>

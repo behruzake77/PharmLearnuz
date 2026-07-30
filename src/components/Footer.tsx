@@ -1,4 +1,4 @@
-import { GraduationCap, Mail, Phone, MapPin, ArrowUp, Sparkles } from 'lucide-react';
+import { GraduationCap, Mail, Phone, MapPin, ArrowUp } from 'lucide-react';
 import { scrollToSection } from '../App';
 
 interface FooterProps {
@@ -6,84 +6,79 @@ interface FooterProps {
 }
 
 const sections = [
-  { label: 'Kurslar • Orbit', id: 'courses' },
-  { label: 'Imkoniyatlar • Bento', id: 'features' },
-  { label: 'Afzalliklar • Gradient', id: 'benefits' },
-  { label: 'Fikrlar • Stack', id: 'testimonials' },
-  { label: 'Narxlar • Premium', id: 'pricing' },
+  { label: 'Kurslar', id: 'courses' },
+  { label: 'Imkoniyatlar', id: 'features' },
+  { label: 'Afzalliklar', id: 'benefits' },
+  { label: 'Sharhlar', id: 'testimonials' },
+  { label: 'Narxlar', id: 'pricing' },
 ];
 
 export default function Footer({ onNavigate }: FooterProps) {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
-    <footer className="bg-dark-950 text-dark-300 relative overflow-hidden border-t border-white/[0.06]">
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gradient-to-b from-primary-900/10 to-transparent blur-[60px] rounded-full" />
-        <div className="absolute inset-0 bg-grid-dark opacity-[0.2]" />
+    <footer className="bg-slate-950 text-slate-300 relative overflow-hidden border-t border-white/[0.06]">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[280px] bg-gradient-to-b from-white/[0.04] to-transparent blur-[50px] rounded-full" style={{ transform: 'translateZ(0)' }} />
+        <div className="absolute inset-0 bg-grid-dark opacity-[0.15]" />
       </div>
 
       <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-12 py-16 sm:py-20">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-12 py-16">
           <div className="col-span-2 md:col-span-4 lg:col-span-2">
             <button onClick={() => onNavigate('landing')} className="flex items-center gap-3 mb-5 cursor-pointer group">
-              <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:rotate-[-8deg] transition-transform">
-                <GraduationCap className="w-6 h-6 text-dark-900" />
+              <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center shadow-sm group-hover:rotate-[-6deg] transition-transform">
+                <GraduationCap className="w-5 h-5 text-slate-900" />
               </div>
               <div className="text-left leading-none">
-                <div className="text-[18px] font-display font-bold tracking-tight text-white">Pharm<span className="text-white/60">Learn</span></div>
-                <div className="text-[10px] font-bold tracking-[0.12em] uppercase text-white/40 mt-0.5">PREMIUM • JITTER EDITION</div>
+                <div className="text-[17px] font-display font-bold tracking-tight text-white">Pharm<span className="text-white/60">Learn</span></div>
+                <div className="text-[10px] font-bold tracking-[0.12em] uppercase text-white/30 mt-0.5">Premium • 2026</div>
               </div>
             </button>
-            <p className="text-[13px] leading-[1.6] tracking-tight text-white/50 max-w-[360px] mb-6">
-              Jitter.video templates — The Stack, Orbit Cards, Gradient Loop dan ilhomlangan
-              O'zbekistondagi #1 farmasevtlar premium platformasi. Motion + glass + orbit.
+            <p className="text-[12.5px] leading-[1.6] text-white/45 max-w-[340px] mb-6">
+              O‘zbekistondagi farmasevtlar uchun zamonaviy, tez va ishonchli premium ta’lim platformasi.
             </p>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.06] border border-white/10 text-[11px] font-medium tracking-tight text-white/60">
-              <Sparkles className="w-3.5 h-3.5 text-primary-300" />
-              Jitter motion premium • 2026
-            </div>
-            <div className="mt-6 space-y-2.5">
-              <a href="mailto:info@pharmlearn.uz" className="flex items-center gap-2.5 text-[12px] tracking-tight text-white/40 hover:text-white/80 transition-colors"><Mail className="w-4 h-4" /> info@pharmlearn.uz</a>
-              <a href="tel:+998901234567" className="flex items-center gap-2.5 text-[12px] tracking-tight text-white/40 hover:text-white/80 transition-colors"><Phone className="w-4 h-4" /> +998 90 123 45 67</a>
-              <div className="flex items-center gap-2.5 text-[12px] tracking-tight text-white/40"><MapPin className="w-4 h-4" /> Toshkent • Premium orbit</div>
+            <div className="mt-6 space-y-2">
+              <a href="mailto:info@pharmlearn.uz" className="flex items-center gap-2 text-[12px] text-white/40 hover:text-white/70 transition-colors"><Mail className="w-3.5 h-3.5" /> info@pharmlearn.uz</a>
+              <a href="tel:+998901234567" className="flex items-center gap-2 text-[12px] text-white/40 hover:text-white/70 transition-colors"><Phone className="w-3.5 h-3.5" /> +998 90 123 45 67</a>
+              <div className="flex items-center gap-2 text-[12px] text-white/40"><MapPin className="w-3.5 h-3.5" /> Toshkent</div>
             </div>
           </div>
 
           <div>
-            <h4 className="text-[11px] font-bold tracking-[0.12em] uppercase text-white mb-4">Platforma • Jitter</h4>
-            <ul className="space-y-2.5">
+            <h4 className="text-[10px] font-bold tracking-[0.12em] uppercase text-white mb-4">Platforma</h4>
+            <ul className="space-y-2">
               {sections.map((s) => (
                 <li key={s.id}>
-                  <button onClick={() => scrollToSection(s.id)} className="text-[13px] tracking-tight text-white/40 hover:text-white transition-colors cursor-pointer text-left">{s.label}</button>
+                  <button onClick={() => scrollToSection(s.id)} className="text-[12.5px] text-white/40 hover:text-white transition-colors cursor-pointer text-left">{s.label}</button>
                 </li>
               ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="text-[11px] font-bold tracking-[0.12em] uppercase text-white mb-4">Kompaniya</h4>
-            <ul className="space-y-2.5">
-              <li><button onClick={() => onNavigate('landing')} className="text-[13px] tracking-tight text-white/40 hover:text-white transition-colors cursor-pointer">Biz haqimizda — Jitter</button></li>
-              <li><button onClick={() => onNavigate('landing')} className="text-[13px] tracking-tight text-white/40 hover:text-white transition-colors cursor-pointer">Jamoa • Orbit</button></li>
-              <li><button onClick={() => onNavigate('register')} className="text-[13px] tracking-tight text-white/40 hover:text-white transition-colors cursor-pointer">Blog • Motion</button></li>
+            <h4 className="text-[10px] font-bold tracking-[0.12em] uppercase text-white mb-4">Kompaniya</h4>
+            <ul className="space-y-2">
+              <li><button onClick={() => onNavigate('landing')} className="text-[12.5px] text-white/40 hover:text-white transition-colors cursor-pointer">Biz haqimizda</button></li>
+              <li><button onClick={() => onNavigate('landing')} className="text-[12.5px] text-white/40 hover:text-white transition-colors cursor-pointer">Jamoa</button></li>
+              <li><button onClick={() => onNavigate('register')} className="text-[12.5px] text-white/40 hover:text-white transition-colors cursor-pointer">Blog</button></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-[11px] font-bold tracking-[0.12em] uppercase text-white mb-4">Yordam</h4>
-            <ul className="space-y-2.5">
-              <li><button onClick={() => scrollToSection('faq')} className="text-[13px] tracking-tight text-white/40 hover:text-white transition-colors cursor-pointer">FAQ • Stack</button></li>
-              <li><a href="mailto:support@pharmlearn.uz" className="text-[13px] tracking-tight text-white/40 hover:text-white transition-colors">Support • Orbit</a></li>
+            <h4 className="text-[10px] font-bold tracking-[0.12em] uppercase text-white mb-4">Yordam</h4>
+            <ul className="space-y-2">
+              <li><button onClick={() => scrollToSection('faq')} className="text-[12.5px] text-white/40 hover:text-white transition-colors cursor-pointer">FAQ</button></li>
+              <li><a href="mailto:support@pharmlearn.uz" className="text-[12.5px] text-white/40 hover:text-white transition-colors">Qo‘llab-quvvatlash</a></li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-white/[0.06] py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[11px] tracking-tight text-white/30">© {new Date().getFullYear()} PharmLearn • Jitter-inspired premium • Barcha huquqlar</p>
+        <div className="border-t border-white/[0.06] py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-[11px] text-white/30">© {new Date().getFullYear()} PharmLearn • Barcha huquqlar himoyalangan</p>
           <div className="flex items-center gap-3">
-            <button onClick={() => onNavigate('admin')} className="text-[11px] tracking-tight px-3 py-1 rounded-full bg-white/[0.06] border border-white/10 text-white/40 hover:text-white/80 cursor-pointer">⚙ Admin • Premium</button>
-            <button onClick={scrollToTop} className="w-8 h-8 rounded-full bg-white text-dark-900 flex items-center justify-center hover:bg-white/90 transition-colors cursor-pointer"><ArrowUp className="w-4 h-4" /></button>
+            <button onClick={() => onNavigate('admin')} className="text-[11px] px-3 py-1 rounded-full bg-white/[0.06] border border-white/10 text-white/40 hover:text-white/70 cursor-pointer">Admin</button>
+            <button onClick={scrollToTop} className="w-8 h-8 rounded-full bg-white text-slate-900 flex items-center justify-center hover:bg-white/90 transition-colors cursor-pointer"><ArrowUp className="w-4 h-4" /></button>
           </div>
         </div>
       </div>

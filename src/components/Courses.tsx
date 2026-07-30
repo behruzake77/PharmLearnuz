@@ -41,22 +41,21 @@ export default function Courses({ onNavigate }: CoursesProps) {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
           <div className="max-w-[560px]">
             <motion.div
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-900 text-white text-[11px] font-bold tracking-[0.12em] uppercase mb-4"
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 text-white text-[10px] font-bold tracking-[0.12em] uppercase mb-4"
             >
               <BookOpen className="w-3.5 h-3.5" />
-              JITTER ORBIT • Дорилар каталоги
+              Дорилар каталоги • 2000+
             </motion.div>
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.08 }}
-              className="font-display text-[32px] sm:text-[44px] font-[700] leading-[0.95] tracking-[-0.04em] text-dark-900"
+              transition={{ duration: 0.6, delay: 0.06 }}
+              className="font-display text-[30px] sm:text-[42px] font-[700] leading-[0.95] tracking-[-0.03em] text-slate-900"
             >
-              Eng mashhur <span className="gradient-text">дори препаратлари</span><br />
-              premium orbit cards
+              Eng mashhur <span className="gradient-text">дори препаратлари</span>
             </motion.h2>
           </div>
           <motion.div
@@ -65,8 +64,8 @@ export default function Courses({ onNavigate }: CoursesProps) {
             transition={{ duration: 0.6, delay: 0.16 }}
             className="flex flex-col gap-3"
           >
-            <p className="text-[15px] leading-[1.6] text-dark-500 max-w-[420px]">
-              <a href="https://gopharm.uz" target="_blank" rel="noopener noreferrer" className="font-semibold text-dark-900 underline decoration-primary-200">GoPharm.uz</a> дан haqiqiy ma'lumotlar bilan Jitter Orbit Cards uslubida.
+            <p className="text-[14px] leading-[1.6] text-slate-500 max-w-[420px]">
+              <a href="https://gopharm.uz" target="_blank" rel="noopener noreferrer" className="font-semibold text-slate-900 underline decoration-slate-200">GoPharm.uz</a> дан haqiqiy ma'lumotlar bilan boyutilgan katalog.
             </p>
             <div className="flex items-center gap-2">
               {levels.slice(0, 3).map(l => (
@@ -82,7 +81,7 @@ export default function Courses({ onNavigate }: CoursesProps) {
           </motion.div>
         </div>
 
-        {/* Orbit Cards Grid - Jitter style */}
+        {/* Cards Grid - premium */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {searched.slice(0, 6).map((drug, i) => (
             <motion.div
@@ -94,9 +93,9 @@ export default function Courses({ onNavigate }: CoursesProps) {
               onClick={() => setSelectedDrug(drug)}
             >
               {/* Top shine */}
-              <div className="absolute top-0 inset-x-6 h-[1px] bg-gradient-to-r from-transparent via-primary-200/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute top-0 inset-x-6 h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              {/* Image area - Jitter preview */}
+              {/* Image area */}
               <div className="relative h-[220px] bg-gradient-to-br from-dark-50 to-primary-50/50 p-5 overflow-hidden">
                 {/* Orbit rings bg */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-[0.06] group-hover:opacity-[0.10] transition-opacity">
@@ -114,7 +113,7 @@ export default function Courses({ onNavigate }: CoursesProps) {
                   />
                 </div>
 
-                {/* Floating badges - Jitter style */}
+                {/* Badges */}
                 <div className="absolute top-4 left-4 flex items-center gap-2">
                   <span className={`text-[10px] font-bold tracking-wider px-2.5 py-1 rounded-full ${drug.tagColor} shadow-sm`}>{drug.tag}</span>
                 </div>
@@ -178,7 +177,7 @@ export default function Courses({ onNavigate }: CoursesProps) {
             onClick={() => setShowModal(true)}
             className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-dark-900/[0.08] shadow-sm hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] hover:border-dark-900/[0.12] text-[13px] font-semibold tracking-tight text-dark-700 hover:text-dark-900 transition-all cursor-pointer"
           >
-            Барча {realDrugsData.length}+ препараtlарни кўриш — Jitter Orbit Grid
+            Барча {realDrugsData.length}+ препаратлар — to‘liq ko‘rish
             <span className="w-7 h-7 rounded-full bg-dark-900 text-white flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
               <ArrowRight className="w-4 h-4" />
             </span>
@@ -204,8 +203,8 @@ export default function Courses({ onNavigate }: CoursesProps) {
             <div className="sticky top-0 bg-white/90 backdrop-blur-xl z-10 p-6 border-b border-dark-100">
               <div className="flex items-center justify-between mb-4">
                 <div>
-                  <h2 className="font-display text-[22px] font-bold tracking-tight">Барча препаратлар — Orbit View</h2>
-                  <p className="text-[12px] text-dark-400 mt-0.5">gopharm.uz • {realDrugsData.length} та препарат • Premium orbit</p>
+                  <h2 className="font-display text-[22px] font-bold tracking-tight">Барча препаратлар</h2>
+                  <p className="text-[12px] text-dark-400 mt-0.5">gopharm.uz • {realDrugsData.length} та препарат • Premium katalog</p>
                 </div>
                 <button onClick={() => { setShowModal(false); setSelectedDrug(null); }} className="w-9 h-9 rounded-full bg-dark-900 text-white flex items-center justify-center hover:bg-black transition-colors cursor-pointer">
                   <X className="w-4 h-4" />
@@ -366,7 +365,7 @@ function DrugDetailModal({ drug, onClose, onNavigate }: { drug: DrugData; onClos
                 <div className="w-12 h-12 rounded-[12px] bg-white/10 flex items-center justify-center"><FlaskConical className="w-6 h-6" /></div>
                 <div className="flex-1">
                   <h3 className="font-display font-semibold text-[15px]">Video dars: {drug.activeSubstance}</h3>
-                  <p className="text-[12px] text-white/60 mt-1">7 бөлим • 24:30 • Jitter motion premium</p>
+                  <p className="text-[12px] text-white/60 mt-1">7 бөлим • 24:30 • Premium video</p>
                   <div className="mt-4 flex gap-2">
                     <button onClick={() => { window.dispatchEvent(new CustomEvent('open-video-lesson')); onClose(); }} className="px-4 py-2 rounded-full bg-white text-dark-900 text-[12px] font-semibold flex items-center gap-1.5 hover:bg-dark-50 cursor-pointer"><Play className="w-3.5 h-3.5" /> Кўриш</button>
                     <button onClick={() => onNavigate('register')} className="px-4 py-2 rounded-full bg-white/10 text-white text-[12px] font-semibold hover:bg-white/15 cursor-pointer">Тўлиқ дары — Register</button>
