@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { Star, Clock, Users, ArrowRight, BookOpen, Search, X, Play } from 'lucide-react';
+import { Star, Clock, ArrowRight, BookOpen, Search, X, Play, FlaskConical, Sparkles } from 'lucide-react';
 import { realDrugsData, DrugData } from '../data/drugData';
 
 interface CoursesProps {
@@ -30,243 +30,225 @@ export default function Courses({ onNavigate }: CoursesProps) {
     : filtered;
 
   return (
-    <section id="courses" ref={ref} className="py-20 sm:py-28 bg-dark-50/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="courses" ref={ref} className="py-20 sm:py-28 relative overflow-hidden bg-[#fcfdff]">
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-grid opacity-[0.3]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-b from-primary-50/50 to-transparent rounded-full blur-[60px]" />
+      </div>
+
+      <div className="relative max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
+          <div className="max-w-[560px]">
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-900 text-white text-[11px] font-bold tracking-[0.12em] uppercase mb-4"
+            >
+              <BookOpen className="w-3.5 h-3.5" />
+              JITTER ORBIT • Дорилар каталоги
+            </motion.div>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.08 }}
+              className="font-display text-[32px] sm:text-[44px] font-[700] leading-[0.95] tracking-[-0.04em] text-dark-900"
+            >
+              Eng mashhur <span className="gradient-text">дори препаратлари</span><br />
+              premium orbit cards
+            </motion.h2>
+          </div>
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-100 text-sm font-medium text-emerald-700 mb-5"
+            transition={{ duration: 0.6, delay: 0.16 }}
+            className="flex flex-col gap-3"
           >
-            <BookOpen className="w-4 h-4" />
-            Дорилар — gopharm.uz
+            <p className="text-[15px] leading-[1.6] text-dark-500 max-w-[420px]">
+              <a href="https://gopharm.uz" target="_blank" rel="noopener noreferrer" className="font-semibold text-dark-900 underline decoration-primary-200">GoPharm.uz</a> дан haqiqiy ma'lumotlar bilan Jitter Orbit Cards uslubida.
+            </p>
+            <div className="flex items-center gap-2">
+              {levels.slice(0, 3).map(l => (
+                <button
+                  key={l}
+                  onClick={() => setSelectedLevel(l)}
+                  className={`px-3.5 py-1.5 rounded-full text-[12px] font-semibold tracking-tight transition-all cursor-pointer ${selectedLevel === l ? 'bg-dark-900 text-white shadow-md' : 'bg-white border border-dark-100 text-dark-500 hover:border-dark-200'}`}
+                >
+                  {l}
+                </button>
+              ))}
+            </div>
           </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-dark-900 tracking-tight mb-5"
-          >
-            Eng mashhur <span className="gradient-text">дори препаратлари</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg text-dark-500 leading-relaxed"
-          >
-            <a href="https://gopharm.uz" target="_blank" rel="noopener noreferrer" className="text-primary-600 font-semibold hover:underline">GoPharm.uz</a> дан олинган хақиқий дорилар: фармакология, таъсир механизми, дозалаш ва ножўя таъсирлар.
-          </motion.p>
         </div>
 
-        {/* Course cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Orbit Cards Grid - Jitter style */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {searched.slice(0, 6).map((drug, i) => (
             <motion.div
               key={drug.id}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.15 + i * 0.1 }}
-              className="group bg-white rounded-3xl border border-dark-100 overflow-hidden hover:shadow-2xl hover:shadow-primary-500/[0.08] hover:border-primary-200 transition-all duration-500 cursor-pointer"
+              initial={{ opacity: 0, y: 30, rotate: 0 }}
+              animate={isVisible ? { opacity: 1, y: 0, rotate: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.15 + i * 0.08, ease: [0.22,1,0.36,1] }}
+              className="group relative rounded-[28px] bg-white border border-dark-900/[0.06] shadow-[0_2px_12px_rgba(0,0,0,0.03),0_12px_40px_rgba(15,23,42,0.03)] hover:shadow-[0_16px_48px_rgba(15,23,42,0.08)] hover:border-dark-900/[0.10] hover:translate-y-[-4px] hover:rotate-[0.4deg] transition-all duration-500 cursor-pointer overflow-hidden flex flex-col"
               onClick={() => setSelectedDrug(drug)}
             >
-              {/* Image */}
-              <div className="relative h-52 overflow-hidden bg-dark-50">
-                <img
-                  src={drug.image}
-                  alt={drug.title}
-                  className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                <span className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold ${drug.tagColor}`}>
-                  {drug.tag}
-                </span>
-                <div className="absolute top-4 right-4 flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm">
-                  <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
-                  <span className="text-sm font-semibold text-dark-800">{drug.rating}</span>
+              {/* Top shine */}
+              <div className="absolute top-0 inset-x-6 h-[1px] bg-gradient-to-r from-transparent via-primary-200/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              {/* Image area - Jitter preview */}
+              <div className="relative h-[220px] bg-gradient-to-br from-dark-50 to-primary-50/50 p-5 overflow-hidden">
+                {/* Orbit rings bg */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-[0.06] group-hover:opacity-[0.10] transition-opacity">
+                  <div className="w-[280px] h-[280px] rounded-full border border-dashed border-dark-300" />
+                  <div className="absolute w-[200px] h-[200px] rounded-full border border-dashed border-dark-300" />
                 </div>
+
+                <div className="relative h-full flex items-center justify-center">
+                  <motion.img
+                    whileHover={{ scale: 1.05, rotate: 1 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    src={drug.image}
+                    alt={drug.title}
+                    className="w-[130px] h-[130px] object-contain bg-white rounded-[18px] shadow-[0_8px_24px_rgba(0,0,0,0.08)] border border-dark-50 p-3"
+                  />
+                </div>
+
+                {/* Floating badges - Jitter style */}
+                <div className="absolute top-4 left-4 flex items-center gap-2">
+                  <span className={`text-[10px] font-bold tracking-wider px-2.5 py-1 rounded-full ${drug.tagColor} shadow-sm`}>{drug.tag}</span>
+                </div>
+                <div className="absolute top-4 right-4 flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md border border-dark-100 shadow-sm">
+                  <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
+                  <span className="text-[11px] font-bold text-dark-800">{drug.rating}</span>
+                </div>
+
+                {/* Bottom play indicator */}
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2 px-3 py-1.5 rounded-full bg-dark-900 text-white text-[11px] font-semibold shadow-lg"
+                >
+                  <Play className="w-3 h-3" /> Video dars • {drug.lessons} dars
+                </motion.div>
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <div className="flex items-center gap-3 mb-3 flex-wrap">
-                  <span className="text-xs font-medium text-primary-600 bg-primary-50 px-2.5 py-1 rounded-md">
-                    {drug.level}
-                  </span>
-                  <span className="flex items-center gap-1 text-xs text-dark-400">
-                    <Clock className="w-3.5 h-3.5" />
-                    {drug.duration}
-                  </span>
-                  <span className="text-xs text-dark-400 bg-dark-50 px-2 py-0.5 rounded-md">
-                    {drug.drugForm}
-                  </span>
+              <div className="p-5 flex-1 flex flex-col">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-[10px] font-bold tracking-[0.08em] uppercase px-2 py-1 rounded-full bg-dark-900 text-white">{drug.level}</span>
+                  <span className="flex items-center gap-1 text-[11px] text-dark-400"><Clock className="w-3 h-3" />{drug.duration}</span>
+                  <span className="ml-auto text-[10px] font-medium px-2 py-0.5 rounded-full bg-dark-50 border border-dark-100 text-dark-500">{drug.drugForm}</span>
                 </div>
-                <h3 className="text-xl font-bold text-dark-900 mb-1 group-hover:text-primary-700 transition-colors">
+
+                <h3 className="font-display font-semibold text-[18px] leading-[1.25] tracking-tight text-dark-900 group-hover:text-black transition-colors line-clamp-2">
                   {drug.title}
                 </h3>
-                <p className="text-xs text-dark-400 mb-2 font-medium">
-                  {drug.activeSubstance} · {drug.manufacturer} ({drug.country})
-                </p>
-                <p className="text-sm text-dark-500 leading-relaxed mb-3 line-clamp-2">
-                  {drug.description.substring(0, 120)}...
-                </p>
-                {/* Topics */}
-                <div className="flex flex-wrap gap-1.5 mb-3">
-                  {drug.topics.map((topic) => (
-                    <span key={topic} className="text-[11px] px-2 py-0.5 rounded-md bg-dark-50 text-dark-500 font-medium">
-                      {topic}
-                    </span>
+                <p className="text-[11px] font-medium text-dark-400 mt-1">{drug.activeSubstance} • {drug.manufacturer}</p>
+                <p className="text-[12.5px] leading-[1.5] text-dark-500 mt-2.5 line-clamp-2">{drug.description}</p>
+
+                <div className="flex flex-wrap gap-1 mt-3.5">
+                  {drug.topics.slice(0, 3).map((t) => (
+                    <span key={t} className="text-[10px] font-medium px-2 py-1 rounded-full bg-dark-50 border border-dark-100 text-dark-500">{t}</span>
                   ))}
                 </div>
-                <div className="flex items-center justify-between pt-3 border-t border-dark-100">
-                  <div className="flex items-center gap-4 text-xs text-dark-400">
-                    <span>{drug.modules} модуль</span>
-                    <span>{drug.lessons} дарс</span>
-                    <span className="flex items-center gap-1">
-                      <Users className="w-3 h-3" />
-                      {drug.students.toLocaleString()}
-                    </span>
+
+                <div className="mt-auto pt-4 flex items-center justify-between border-t border-dark-50">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-5 h-5 rounded-full bg-gradient-to-br from-primary-500 to-emerald-500 flex items-center justify-center text-[9px] font-bold text-white">P</div>
+                    <span className="text-[11px] text-dark-400">{drug.students.toLocaleString()} o'rgangan</span>
                   </div>
-                  <span className="text-sm font-bold text-emerald-600">{drug.price}</span>
+                  <span className="text-[13px] font-bold tracking-tight text-dark-900 flex items-center gap-1">
+                    {drug.price.split(' ')[0]} <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                  </span>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* View all link */}
+        {/* View all */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center mt-12"
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-10 flex justify-center"
         >
           <button
             onClick={() => setShowModal(true)}
-            className="group inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-primary-600 hover:text-primary-700 border border-primary-200 hover:border-primary-300 rounded-xl hover:bg-primary-50 transition-all duration-200"
+            className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-dark-900/[0.08] shadow-sm hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] hover:border-dark-900/[0.12] text-[13px] font-semibold tracking-tight text-dark-700 hover:text-dark-900 transition-all cursor-pointer"
           >
-            Барча 10+ дори препаратларини кўриш
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            Барча {realDrugsData.length}+ препараtlарни кўриш — Jitter Orbit Grid
+            <span className="w-7 h-7 rounded-full bg-dark-900 text-white flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
+              <ArrowRight className="w-4 h-4" />
+            </span>
           </button>
         </motion.div>
       </div>
 
-      {/* All Drugs Modal */}
+      {/* All Drugs Modal - Premium */}
       {showModal && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto"
+          className="fixed inset-0 z-[100] bg-dark-900/20 backdrop-blur-xl flex items-center justify-center p-4 overflow-y-auto"
           onClick={() => { setShowModal(false); setSelectedDrug(null); }}
         >
           <motion.div
-            initial={{ scale: 0.95, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            className="relative w-full max-w-6xl bg-white rounded-3xl shadow-2xl max-h-[90vh] overflow-y-auto my-4"
+            initial={{ scale: 0.96, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            transition={{ ease: [0.22,1,0.36,1], duration: 0.5 }}
+            className="relative w-full max-w-6xl bg-white rounded-[28px] shadow-[0_24px_80px_rgba(0,0,0,0.16)] max-h-[90vh] overflow-hidden flex flex-col my-4"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Header */}
-            <div className="sticky top-0 bg-white z-10 p-6 pb-4 border-b border-dark-100 rounded-t-3xl">
+            <div className="sticky top-0 bg-white/90 backdrop-blur-xl z-10 p-6 border-b border-dark-100">
               <div className="flex items-center justify-between mb-4">
                 <div>
-                  <h2 className="text-2xl font-extrabold text-dark-900">Барча дори препаратлари</h2>
-                  <p className="text-sm text-dark-400">gopharm.uz дан олинган {realDrugsData.length} та препарат</p>
+                  <h2 className="font-display text-[22px] font-bold tracking-tight">Барча препаратлар — Orbit View</h2>
+                  <p className="text-[12px] text-dark-400 mt-0.5">gopharm.uz • {realDrugsData.length} та препарат • Premium orbit</p>
                 </div>
-                <button onClick={() => { setShowModal(false); setSelectedDrug(null); }} className="w-9 h-9 rounded-xl bg-dark-100 flex items-center justify-center hover:bg-dark-200 transition-colors">
-                  <X className="w-4 h-4 text-dark-500" />
+                <button onClick={() => { setShowModal(false); setSelectedDrug(null); }} className="w-9 h-9 rounded-full bg-dark-900 text-white flex items-center justify-center hover:bg-black transition-colors cursor-pointer">
+                  <X className="w-4 h-4" />
                 </button>
               </div>
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex gap-2">
                 <div className="relative flex-1">
                   <input
                     type="text"
-                    placeholder="Препарат, актив модда ёки ишлаб чиқарувчи бўйича..."
+                    placeholder="Препарат, актив модда..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-dark-200 text-sm focus:border-primary-400 focus:ring-2 focus:ring-primary-100 outline-none transition-all"
+                    className="w-full pl-10 pr-4 py-2.5 rounded-full border border-dark-200 text-[13px] focus:border-dark-900 focus:ring-2 focus:ring-dark-900/10 outline-none transition-all"
                   />
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-400" />
+                  <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-400" />
                 </div>
-              </div>
-              <div className="flex gap-2 mt-4 flex-wrap">
-                {levels.map(l => (
-                  <button
-                    key={l}
-                    onClick={() => setSelectedLevel(l)}
-                    className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
-                      selectedLevel === l ? 'bg-primary-600 text-white' : 'bg-dark-100 text-dark-500 hover:bg-dark-200'
-                    }`}
-                  >
-                    {l}
-                  </button>
-                ))}
+                <div className="flex gap-1.5">
+                  {levels.map(l => (
+                    <button key={l} onClick={() => setSelectedLevel(l)} className={`px-3.5 py-2 rounded-full text-[11px] font-semibold tracking-tight whitespace-nowrap transition-all cursor-pointer ${selectedLevel === l ? 'bg-dark-900 text-white' : 'bg-dark-50 text-dark-500 border border-dark-100 hover:bg-white'}`}>{l}</button>
+                  ))}
+                </div>
               </div>
             </div>
-
-            {/* Drug Grid */}
-            <div className="p-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {searched.length === 0 && (
-                <div className="col-span-full text-center py-12 text-dark-400">
-                  <p className="text-lg font-medium">Хеч нарса топилмади</p>
-                  <p className="text-sm mt-1">Бошқа қидирув сўзини киритинг</p>
-                </div>
-              )}
-              {searched.map((drug, i) => (
-                <motion.div
-                  key={drug.id}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.03 }}
-                  className="bg-dark-50/50 rounded-2xl p-5 border border-dark-100 hover:border-primary-200 hover:shadow-md transition-all group cursor-pointer"
-                  onClick={() => setSelectedDrug(drug)}
-                >
-                  <div className="flex items-center justify-between mb-2">
-                    <span className={`text-[11px] font-semibold px-2 py-0.5 rounded-md ${
-                      drug.level === "Boshlang'ich" ? 'bg-emerald-100 text-emerald-700' :
-                      drug.level === "O'rta" ? 'bg-amber-100 text-amber-700' : 'bg-primary-100 text-primary-700'
-                    }`}>{drug.level}</span>
-                    <div className="flex items-center gap-1">
-                      <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
-                      <span className="text-xs font-semibold text-dark-700">{drug.rating}</span>
-                    </div>
-                  </div>
+            <div className="p-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 overflow-y-auto">
+              {searched.map((drug) => (
+                <div key={drug.id} className="rounded-[18px] border border-dark-100 p-4 hover:border-dark-900/10 hover:shadow-[0_8px_24px_rgba(0,0,0,0.04)] transition-all cursor-pointer group" onClick={() => setSelectedDrug(drug)}>
                   <div className="flex gap-3">
-                    <img src={drug.image} alt={drug.title} className="w-16 h-16 rounded-xl object-contain bg-white border border-dark-100 p-1" />
+                    <img src={drug.image} alt={drug.title} className="w-14 h-14 rounded-[12px] object-contain bg-dark-50 border border-dark-100 p-1" />
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-bold text-dark-900 mb-0.5 group-hover:text-primary-700 transition-colors text-sm">{drug.title}</h3>
-                      <p className="text-[11px] text-dark-400">{drug.drugForm} · {drug.country}</p>
-                      <p className="text-[11px] text-dark-500 mt-1 font-medium">{drug.activeSubstance}</p>
+                      <h3 className="font-semibold text-[13px] leading-tight tracking-tight group-hover:text-primary-600">{drug.title}</h3>
+                      <p className="text-[10px] text-dark-400 mt-0.5">{drug.drugForm} • {drug.country}</p>
+                      <p className="text-[11px] font-medium text-dark-500 mt-1 truncate">{drug.activeSubstance}</p>
                     </div>
+                    <span className="text-[11px] font-bold text-emerald-600">{drug.price.split(' ')[0]}</span>
                   </div>
-                  <div className="mt-3 flex items-center justify-between pt-2 border-t border-dark-100">
-                    <span className="text-xs text-dark-400">{drug.manufacturer}</span>
-                    <span className="text-xs font-bold text-emerald-600">{drug.price}</span>
-                  </div>
-                </motion.div>
+                </div>
               ))}
-            </div>
-
-            <div className="sticky bottom-0 bg-white p-4 border-t border-dark-100 text-center">
-              <a
-                href="https://gopharm.uz"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-primary-600 to-emerald-500 text-white text-sm font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all"
-              >
-                gopharm.uz га ўтиш
-                <ArrowRight className="w-4 h-4" />
-              </a>
             </div>
           </motion.div>
         </motion.div>
       )}
 
-      {/* Drug Detail Modal */}
-      {selectedDrug && (
-        <DrugDetailModal drug={selectedDrug} onClose={() => setSelectedDrug(null)} onNavigate={onNavigate} />
-      )}
+      {selectedDrug && <DrugDetailModal drug={selectedDrug} onClose={() => setSelectedDrug(null)} onNavigate={onNavigate as any} />}
     </section>
   );
 }
@@ -274,75 +256,50 @@ export default function Courses({ onNavigate }: CoursesProps) {
 function DrugDetailModal({ drug, onClose, onNavigate }: { drug: DrugData; onClose: () => void; onNavigate: (p: string) => void }) {
   const [activeTab, setActiveTab] = useState<'info' | 'pharmacology' | 'lesson'>('info');
 
-  const levelColors: Record<string, string> = {
-    "Boshlang'ich": 'bg-emerald-100 text-emerald-700',
-    "O'rta": 'bg-amber-100 text-amber-700',
-    "Ilg'or": 'bg-primary-100 text-primary-700',
-  };
-
-  const pharmacyInfo = [
-    { label: 'Форма выпуска', value: drug.drugForm },
-    { label: 'Активное вещество', value: drug.activeSubstance },
-    { label: 'Производитель', value: drug.manufacturer },
-    { label: 'Страна', value: drug.country },
-    { label: 'Порядок отпуска', value: drug.prescription },
-    { label: 'Цена (gopharm.uz)', value: drug.price },
-    { label: 'Рейтинг', value: `⭐ ${drug.rating}` },
-  ];
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[200] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto"
+      className="fixed inset-0 z-[200] bg-dark-900/30 backdrop-blur-xl flex items-center justify-center p-4 overflow-y-auto"
       onClick={onClose}
     >
       <motion.div
-        initial={{ scale: 0.95, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.95, opacity: 0 }}
-        className="relative w-full max-w-4xl bg-white rounded-3xl shadow-2xl max-h-[90vh] overflow-y-auto my-4"
+        initial={{ scale: 0.96, opacity: 0, y: 20 }}
+        animate={{ scale: 1, opacity: 1, y: 0 }}
+        transition={{ ease: [0.22,1,0.36,1], duration: 0.5 }}
+        className="relative w-full max-w-4xl bg-white rounded-[28px] shadow-[0_24px_80px_rgba(0,0,0,0.2)] max-h-[90vh] overflow-hidden flex flex-col my-4"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close */}
-        <button onClick={onClose} className="absolute top-4 right-4 z-10 w-9 h-9 rounded-xl bg-white/90 shadow-md flex items-center justify-center hover:bg-white transition-colors">
-          <X className="w-4 h-4 text-dark-500" />
-        </button>
+        <button onClick={onClose} className="absolute top-5 right-5 z-10 w-9 h-9 rounded-full bg-dark-900 text-white flex items-center justify-center hover:bg-black shadow-lg cursor-pointer"><X className="w-4 h-4" /></button>
 
-        {/* Hero section */}
-        <div className="bg-gradient-to-br from-primary-50 to-emerald-50 p-6 sm:p-8">
-          <div className="flex flex-col sm:flex-row gap-6 items-start">
-            <img src={drug.image} alt={drug.title} className="w-32 h-32 object-contain bg-white rounded-2xl border border-dark-100 p-3 shadow-lg" />
-            <div className="flex-1">
-              <span className={`text-[11px] font-semibold px-2.5 py-1 rounded-full ${levelColors[drug.level] || 'bg-dark-100 text-dark-700'}`}>{drug.level}</span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-dark-900 mt-2 mb-1">{drug.title}</h2>
-              <p className="text-dark-400 text-sm mb-2">{drug.subtitle}</p>
-              <div className="flex items-center gap-2 text-xs text-dark-500 flex-wrap">
-                <span className="bg-white px-3 py-1 rounded-full shadow-sm">⭐ {drug.rating}</span>
-                <span className="bg-white px-3 py-1 rounded-full shadow-sm">{drug.drugForm}</span>
-                <span className="bg-white px-3 py-1 rounded-full shadow-sm">{drug.duration}</span>
-                <span className="bg-white px-3 py-1 rounded-full shadow-sm">{drug.lessons} дарс</span>
+        <div className="rounded-t-[28px] bg-gradient-to-br from-dark-50 to-primary-50/40 p-7 sm:p-8 border-b border-dark-100">
+          <div className="flex flex-col sm:flex-row gap-6">
+            <div className="relative">
+              <img src={drug.image} alt={drug.title} className="w-32 h-32 object-contain bg-white rounded-[20px] border border-dark-100 p-3 shadow-lg" />
+              <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-dark-900 text-white flex items-center justify-center text-[10px]">↗</div>
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full bg-dark-900 text-white">{drug.level}</span>
+                <span className="text-[10px] font-semibold px-2 py-1 rounded-full bg-white border border-dark-100 text-dark-600">⭐ {drug.rating}</span>
+                <span className="text-[10px] font-semibold px-2 py-1 rounded-full bg-white border border-dark-100 text-dark-600">{drug.drugForm}</span>
               </div>
-              <p className="text-sm text-dark-600 mt-3 leading-relaxed">{drug.description}</p>
+              <h2 className="font-display font-bold text-[22px] sm:text-[26px] leading-[1.1] tracking-tight text-dark-900">{drug.title}</h2>
+              <p className="text-[12px] text-dark-400 mt-1">{drug.subtitle}</p>
+              <p className="text-[13px] leading-[1.5] text-dark-600 mt-3 max-w-[520px]">{drug.description}</p>
             </div>
           </div>
-        </div>
 
-        {/* Tabs */}
-        <div className="px-6 sm:px-8 border-b border-dark-100">
-          <div className="flex gap-6">
+          <div className="mt-6 flex gap-1 p-1 rounded-full bg-dark-900/[0.04] border border-dark-900/[0.06] w-fit">
             {[
-              { id: 'info', label: 'Препарат хақида' },
+              { id: 'info', label: 'Препарат' },
               { id: 'pharmacology', label: 'Фармакология' },
-              { id: 'lesson', label: 'Видео дарс' },
+              { id: 'lesson', label: 'Video dars' },
             ].map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as any)}
-                className={`py-3 text-sm font-semibold border-b-2 transition-colors ${
-                  activeTab === tab.id ? 'text-primary-600 border-primary-600' : 'text-dark-400 border-transparent hover:text-dark-700'
-                }`}
+                className={`px-4 py-1.5 rounded-full text-[12px] font-semibold tracking-tight transition-all cursor-pointer ${activeTab === tab.id ? 'bg-dark-900 text-white shadow-md' : 'text-dark-500 hover:text-dark-900'}`}
               >
                 {tab.label}
               </button>
@@ -350,209 +307,85 @@ function DrugDetailModal({ drug, onClose, onNavigate }: { drug: DrugData; onClos
           </div>
         </div>
 
-        {/* Tab Content */}
-        <div className="p-6 sm:p-8">
+        <div className="p-6 sm:p-7 overflow-y-auto">
           {activeTab === 'info' && (
-            <div className="grid sm:grid-cols-2 gap-4">
-              {pharmacyInfo.map((info) => (
-                <div key={info.label} className="bg-dark-50 rounded-xl p-4">
-                  <p className="text-xs text-dark-400 mb-1">{info.label}</p>
-                  <p className="text-sm font-semibold text-dark-800">{info.value}</p>
+            <div className="grid sm:grid-cols-2 gap-3">
+              {[
+                { l: 'Форма выпуска', v: drug.drugForm },
+                { l: 'Активное вещество', v: drug.activeSubstance },
+                { l: 'Производитель', v: drug.manufacturer },
+                { l: 'Страна', v: drug.country },
+                { l: 'Отпуск', v: drug.prescription },
+                { l: 'Цена', v: drug.price },
+              ].map((i) => (
+                <div key={i.l} className="rounded-[14px] bg-dark-50 border border-dark-100 px-4 py-3">
+                  <p className="text-[10px] font-bold tracking-widest uppercase text-dark-400">{i.l}</p>
+                  <p className="text-[13px] font-semibold text-dark-900 mt-1">{i.v}</p>
                 </div>
               ))}
-              <div className="sm:col-span-2 bg-gradient-to-r from-primary-500 to-emerald-500 rounded-xl p-5 text-white">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm opacity-80">gopharm.uz даги нархи</p>
-                    <p className="text-2xl font-bold mt-1">{drug.price}</p>
-                  </div>
-                  <a
-                    href={`https://gopharm.uz/search?q=${encodeURIComponent(drug.title)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 bg-white/20 hover:bg-white/30 rounded-xl text-sm font-semibold transition-colors"
-                  >
-                    gopharm.uz → 
-                  </a>
+              <div className="sm:col-span-2 rounded-[16px] bg-dark-900 text-white p-5 flex items-center justify-between">
+                <div>
+                  <p className="text-[11px] tracking-wide uppercase opacity-60">gopharm.uz нархи</p>
+                  <p className="text-[22px] font-bold tracking-tight mt-1">{drug.price}</p>
                 </div>
+                <a href={`https://gopharm.uz/search?q=${encodeURIComponent(drug.title)}`} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-full bg-white text-dark-900 text-[12px] font-semibold hover:bg-dark-50 transition-colors">gopharm.uz →</a>
               </div>
             </div>
           )}
 
           {activeTab === 'pharmacology' && (
-            <div className="space-y-6">
-              {/* Mechanism */}
-              <div>
-                <h4 className="text-lg font-bold text-dark-900 mb-2">Таъсир механизми (Фармакодинамика)</h4>
-                <div className="bg-primary-50 rounded-xl p-4 text-sm text-dark-700 leading-relaxed border border-primary-100">
-                  {drug.id === 1 ? 'Селектив периферик H1-гистамин рецепторлар блокатори. Гистамин таъсирини олдини олади — капиллярлар ўтказувчанлиги камаяди, тўқима шиши ва силлиқ мускул спазми олди олинади.' :
-                   drug.id === 2 ? 'Селектив H1-гистамин рецепторлар блокатори. Гистамин-зависим фазани тормозлайди, экссудацияни камайтиради, эозинофиллар миграциясини олдини олади.' :
-                   drug.id === 3 ? 'Диклофенак ингибирует ЦОГ-1 и ЦОГ-2, нарушая синтез простагландинов. При местном применении оказывает противовоспалительное и анальгезирующее действие.' :
-                   drug.id === 4 ? 'Эссенциальные фосфолипиды (EPL) встраиваются в поврежденные мембраны гепатоцитов, восстанавливая их целостность и функцию.' :
-                   drug.id === 5 ? 'Ибупрофен ингибирует ЦОГ-1 и ЦОГ-2, снижая синтез простагландинов — медиаторов воспаления, боли и лихорадки.' :
-                   drug.id === 6 ? 'Парацетамол — анальгетик-антипиретик. Фенилэфрин — α1-адреномиметик. Фенирамин — H1-блокатор.' :
-                   drug.id === 7 ? 'Флурбипрофен — НПВП из группы пропионовой кислоты. Ингибирует ЦОГ-1 и ЦОГ-2, подавляя синтез простагландинов.' :
-                   drug.id === 8 ? 'Симетикон уменьшает поверхностное натяжение пузырьков газа в ЖКТ, способствуя их слиянию и выведению.' :
-                   drug.id === 9 ? 'Комбинированный поливитаминный комплекс с микроэлементами. Витамины и минералы участвуют в метаболических процессах.' :
-                   'Глюкозамин стимулирует синтез протеогликанов. Хондроитин снижает активность ферментов, разрушающих хрящ. Диклофенак — НПВП.'}
-                </div>
+            <div className="space-y-5">
+              <div className="rounded-[16px] bg-primary-50 border border-primary-100 p-4">
+                <p className="text-[11px] font-bold uppercase tracking-widest text-primary-700 mb-2">Таъсир механизми</p>
+                <p className="text-[13px] leading-[1.6] text-dark-700">Селектив периферик H1-гистамин рецептор блокатори. Аллергик реакцияларни олдини олади.</p>
               </div>
-
-              {/* Indications & Contraindications */}
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="text-lg font-bold text-dark-900 mb-3">Қўлланилиши</h4>
-                  <ul className="space-y-2">
-                    {[
-                      'Сезонли аллергик ринит', 'Крапивница', 'Аллергик конъюнктивит', 'Аллергик дерматозлар',
-                      'Поллиноз'
-                    ].slice(0, 4).map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-dark-600">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 flex-shrink-0" />
-                        {item}
-                      </li>
+                  <h4 className="font-semibold text-[13px] tracking-tight mb-2">Қўлланилиши</h4>
+                  <ul className="space-y-1.5">
+                    {['Сезонли аллергик ринит', 'Крапивница', 'Аллергик конъюнктивит'].map(x => (
+                      <li key={x} className="flex gap-2 text-[12px] text-dark-600"><span className="w-1 h-1 rounded-full bg-emerald-500 mt-2" />{x}</li>
                     ))}
                   </ul>
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-dark-900 mb-3">Қўллаш мумкин эмас</h4>
-                  <ul className="space-y-2">
-                    {[
-                      'Юқори сезувчанлик', 'Ҳомиладорлик', '12 ёшгача болалар',
-                      'Буйрак етишмовчилиги'
-                    ].slice(0, 4).map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-dark-600">
-                        <span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-1.5 flex-shrink-0" />
-                        {item}
-                      </li>
+                  <h4 className="font-semibold text-[13px] tracking-tight mb-2">Ножўя таъсирлар</h4>
+                  <div className="flex flex-wrap gap-1.5">
+                    {['Бош оғриғи 12%', 'Уйқучанлик 8%', 'Қуруқ оғиз 3%'].map(s => (
+                      <span key={s} className="px-2.5 py-1 rounded-full bg-red-50 border border-red-100 text-[11px] font-medium text-red-700">{s}</span>
                     ))}
-                  </ul>
+                  </div>
                 </div>
-              </div>
-
-              {/* Dosage */}
-              <div>
-                <h4 className="text-lg font-bold text-dark-900 mb-2">Дозалаш</h4>
-                <div className="bg-amber-50 border border-amber-100 rounded-xl p-4 text-sm text-dark-700 leading-relaxed">
-                  Катталар: 10 мг (1 таб) × 1 марта/кун. 2-12 ёш болалар ({'<'}30 кг): 5 мг × 1 марта/кун. Курс: 10-14 кун. Жигар етишмовчилигида дозани камайтириш керак.
-                </div>
-              </div>
-
-              {/* Side Effects */}
-              <div>
-                <h4 className="text-lg font-bold text-dark-900 mb-2">Ножўя таъсирлар</h4>
-                <div className="flex flex-wrap gap-2">
-                  {['Бош оғриғи (12%)', 'Уйқучанлик (8%)', 'Чарчоқ (4%)', 'Қуруқ оғиз (3%)', 'Диспепсия'].map((se) => (
-                    <span key={se} className="px-3 py-1.5 bg-red-50 text-red-700 text-xs font-medium rounded-lg border border-red-100">
-                      {se}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Source */}
-              <div className="bg-dark-50 rounded-xl p-4 text-center">
-                <p className="text-xs text-dark-400">
-                  Манба: <a href="https://gopharm.uz" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline font-medium">gopharm.uz</a>
-                  {' · '}Маълумотлар справочник характерга эга. Қўллашдан олдин шифокор билан маслаҳатлашинг.
-                </p>
               </div>
             </div>
           )}
 
           {activeTab === 'lesson' && (
-            <div className="text-center py-8">
-              <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-primary-100 to-emerald-100 flex items-center justify-center mb-6">
-                <svg className="w-12 h-12 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-dark-900 mb-2">Видео дарс: {drug.activeSubstance}</h3>
-              <p className="text-dark-400 text-sm max-w-lg mx-auto mb-6">Фармакологиядан тўлиқ видео дарс — таъсир механизми, фармакокинетика, клиник қўллаш, дозалаш ва хавфсизлик.</p>
-              
-              <div className="grid sm:grid-cols-2 gap-3 max-w-lg mx-auto mb-6">
-                <div className="bg-dark-50 rounded-xl p-3">
-                  <p className="text-xs text-dark-400">Дарс давомийлиги</p>
-                  <p className="text-lg font-bold text-dark-900">24:30</p>
-                </div>
-                <div className="bg-dark-50 rounded-xl p-3">
-                  <p className="text-xs text-dark-400">Бўлимлар</p>
-                  <p className="text-lg font-bold text-dark-900">7 та</p>
+            <div className="space-y-4">
+              <div className="rounded-[20px] bg-dark-900 text-white p-6 flex gap-4">
+                <div className="w-12 h-12 rounded-[12px] bg-white/10 flex items-center justify-center"><FlaskConical className="w-6 h-6" /></div>
+                <div className="flex-1">
+                  <h3 className="font-display font-semibold text-[15px]">Video dars: {drug.activeSubstance}</h3>
+                  <p className="text-[12px] text-white/60 mt-1">7 бөлим • 24:30 • Jitter motion premium</p>
+                  <div className="mt-4 flex gap-2">
+                    <button onClick={() => { window.dispatchEvent(new CustomEvent('open-video-lesson')); onClose(); }} className="px-4 py-2 rounded-full bg-white text-dark-900 text-[12px] font-semibold flex items-center gap-1.5 hover:bg-dark-50 cursor-pointer"><Play className="w-3.5 h-3.5" /> Кўриш</button>
+                    <button onClick={() => onNavigate('register')} className="px-4 py-2 rounded-full bg-white/10 text-white text-[12px] font-semibold hover:bg-white/15 cursor-pointer">Тўлиқ дары — Register</button>
+                  </div>
                 </div>
               </div>
 
-              {/* Sections */}
-              <div className="max-w-lg mx-auto text-left space-y-2 mb-6">
-                {[ 
-                  { time: '00:00', title: 'Аллергия касалликларига кириш' },
-                  { time: '03:15', title: 'H1-блокаторлар классификацияси' },
+              <div className="grid sm:grid-cols-2 gap-2">
+                {[
+                  { time: '00:00', title: 'Аллергия кириш' },
+                  { time: '03:15', title: 'H1 классификация' },
                   { time: '07:40', title: 'Фармакодинамика' },
                   { time: '12:00', title: 'Фармакокинетика' },
-                  { time: '16:20', title: 'Қўлланилиши ва дозалаш' },
-                  { time: '19:50', title: 'Ножўя таъсирлар ва хавфсизлик' },
                 ].map((s, i) => (
-                  <div key={i} className="flex items-center gap-3 p-2.5 rounded-xl bg-dark-50/50 hover:bg-primary-50 transition-colors cursor-pointer">
-                    <span className="text-xs font-mono font-bold text-primary-600 w-12">{s.time}</span>
-                    <span className="text-sm text-dark-700">{s.title}</span>
+                  <div key={i} className="flex items-center gap-3 p-3 rounded-[12px] bg-dark-50 border border-dark-100 hover:bg-white hover:shadow-sm transition-all">
+                    <span className="font-mono text-[11px] font-bold text-primary-600">{s.time}</span>
+                    <span className="text-[12px] font-medium text-dark-700">{s.title}</span>
                   </div>
                 ))}
-              </div>
-
-              {/* Key Points */}
-              <div className="max-w-lg mx-auto bg-gradient-to-r from-primary-500 to-emerald-500 rounded-2xl p-6 text-white text-left mb-6">
-                <h4 className="font-bold mb-3 text-sm">Асосий хулосалар</h4>
-                <ul className="space-y-2">
-                  {['2-авлод H1-блокатор — седатив эффекти минимал',
-                    'Таъсири 1-3 соатда бошланиб, 24 соатгача давом этади',
-                    'Кунига 1 марта 10 мг — қулай дозалаш режими',
-                    'Ҳайдовчилар учун хавфсиз'
-                  ].map((kp, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-white/90">
-                      <span className="w-1.5 h-1.5 rounded-full bg-white mt-1.5 flex-shrink-0" />
-                      {kp}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Quiz Preview */}
-              <div className="max-w-lg mx-auto bg-dark-50 rounded-2xl p-6 text-left">
-                <h4 className="font-bold text-dark-900 mb-3 text-sm">Тест саволлари</h4>
-                <div className="space-y-3">
-                  {['Лоратадин қайси авлод антигистамин препарати?',
-                    'Таъсир механизми қандай?',
-                    'Катталар учун суткалик доза?'
-                  ].map((q, i) => (
-                    <div key={i} className="bg-white rounded-xl p-3 border border-dark-100">
-                      <p className="text-xs text-dark-400 mb-1">Савол {i + 1}</p>
-                      <p className="text-sm font-medium text-dark-700">{q}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-8">
-                <div className="flex flex-col sm:flex-row items-center gap-3 justify-center">
-                  <button
-                    onClick={() => {
-                      // Import and show video player via state
-                      const event = new CustomEvent('open-video-lesson');
-                      window.dispatchEvent(event);
-                      onClose();
-                    }}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-600 to-emerald-500 text-white text-sm font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all"
-                  >
-                    <Play className="w-4 h-4" />
-                    Видео дарсни кўриш
-                  </button>
-                  <button
-                    onClick={() => onNavigate('register')}
-                    className="px-6 py-3 bg-dark-900 text-white text-sm font-semibold rounded-xl hover:bg-dark-800 transition-all"
-                  >
-                    Тўлиқ дарс учун рўйхатдан ўтинг
-                  </button>
-                </div>
               </div>
             </div>
           )}
